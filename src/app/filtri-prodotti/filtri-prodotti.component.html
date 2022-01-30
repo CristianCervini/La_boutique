@@ -11,8 +11,8 @@
                         id={{filtro.nome}}
                         class="form-control"
                         placeholder={{filtro.label}}...
-                        [(ngModel)]="valoreFiltro"
-                        (ngModelChange)="ngOnChanges($event)"
+                        [(ngModel)]="valoreFiltro.filtro"
+                        (ngModelChange)="ngOnChanges()"
                     >
                 </div>
             </div>
@@ -23,7 +23,13 @@
                         <div *ngFor="let elem of filtro.lista">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                   <input type="checkbox" [ngModel]="false" #{{filtro.nome}}> {{elem.nome}}
+                                   <input 
+                                    type="checkbox"  
+                                    [(ngModel)]="valoreFiltro[elem.nome]" 
+                                    (ngModelChange)="ngOnChanges()"
+                                    
+                                > 
+                                    {{elem.nome}}
                                 </label>
                             </div>
                         </div>

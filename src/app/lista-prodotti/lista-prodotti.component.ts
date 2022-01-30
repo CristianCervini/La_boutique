@@ -10,7 +10,7 @@ export class ListaProdottiComponent implements OnInit {
   constructor() { }
 
   prodotto : string;
-  valoreFiltri : string; 
+  valoreFiltri : string;  
 
   ngOnInit(): void {
   }

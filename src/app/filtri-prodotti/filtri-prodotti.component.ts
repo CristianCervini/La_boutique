@@ -8,17 +8,35 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class FiltriProdottiComponent implements OnInit {
 
   @Input() listaFiltri : [];
-  @Output() valoreFiltri : EventEmitter<object> = new EventEmitter();
+  @Output() valoreFiltri : EventEmitter<string> = new EventEmitter();
 
-  valoreFiltro : string;
+  valoreFiltro : object = {};
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  ngOnChanges(value) {
-    this.valoreFiltri.emit(value);
+  ngOnChanges() {
+    console.log(this.valoreFiltro);
+    let filtroString : string = '';
+    for(let key in this.valoreFiltro){
+      if(typeof this.valoreFiltro[key] === 'boolean' && this.valoreFiltro[key]){
+        if(filtroString === ''){
+          filtroString += key;
+        }else{
+          filtroString += ';' + key ;
+        }
+      }else if(typeof this.valoreFiltro[key] === 'string' && this.valoreFiltro[key] !== ''){
+        if(filtroString === ''){
+          filtroString += this.valoreFiltro[key];
+        }else{
+          filtroString += ';' + this.valoreFiltro[key];
+        }
+      }
+    }
+    console.log(filtroString);
+    this.valoreFiltri.emit(filtroString);
   }
 
 }
