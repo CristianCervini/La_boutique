@@ -17,7 +17,8 @@ import { StoreModule } from '@ngrx/store';
 import { AppReducer } from './reducer/app.reducer';
 import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.component';
 import { FiltriProdottiComponent } from './filtri-prodotti/filtri-prodotti.component';
-import { CustomCardsComponent } from './utils/custom-cards/custom-cards.component'
+import { CustomCardsComponent } from './utils/custom-cards/custom-cards.component';
+import { MyFilterPipe } from './utils/my-filter-pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CustomCardsComponent } from './utils/custom-cards/custom-cards.componen
     ListaProdottiComponent,
     FiltriProdottiComponent,
     CustomCardsComponent,
+    MyFilterPipe
   ],
   imports: [
     BrowserModule,

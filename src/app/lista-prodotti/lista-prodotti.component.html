@@ -1,13 +1,15 @@
 <div class="row container-pag">
     <div class="col-3">
-        <app-filtri-prodotti [listaFiltri]="filtri" ></app-filtri-prodotti>
+        <app-filtri-prodotti [listaFiltri]="filtri" (valoreFiltri)="valoreFiltri = $event"></app-filtri-prodotti>
     </div>
     <div class="col filtri-box">
-        <h2>prova</h2>
         <div class="row">
-            <div class="col-4" *ngFor="let prodotto of lista">
-                <app-custom-cards [prodotto]="prodotto"></app-custom-cards>
-            </div>
+            <!-- ng container in questo case serve per fare una condizione di un'elemento al suo interno -->
+            <!-- <ng-container *ngIf="lista && lista.length > 0; else elseBlock"> -->
+                <div class="col-4 form-group" *ngFor="let prodotto of lista | myfilter:valoreFiltri">    
+                    <app-custom-cards [prodotto]="prodotto"></app-custom-cards>
+                </div>
+            <!-- </ng-container> -->
         </div>
     </div>
 </div>

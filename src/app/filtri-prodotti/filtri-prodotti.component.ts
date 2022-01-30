@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filtri-prodotti',
@@ -8,11 +8,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class FiltriProdottiComponent implements OnInit {
 
   @Input() listaFiltri : [];
+  @Output() valoreFiltri : EventEmitter<object> = new EventEmitter();
+
+  valoreFiltro : string;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log("listaFiltri",this.listaFiltri)
+  }
+
+  ngOnChanges(value) {
+    this.valoreFiltri.emit(value);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-lista-prodotti',
@@ -9,35 +9,26 @@ export class ListaProdottiComponent implements OnInit {
 
   constructor() { }
 
+  prodotto : string;
+  valoreFiltri : string; 
+
   ngOnInit(): void {
   }
 
   lista : Array<object> = [
     {
       id : 1,
-      prodotto : 'mandarino',
+      nome : 'mandarino',
     },{
       id : 2,
-      prodotto : 'mele',
+      nome : 'mele',
     },{
       id : 3,
-      prodotto : 'pere',
+      nome : 'pere',
     },{
       id : 4,
-      prodotto : 'arancie',
-    },{
-      id : 5,
-      prodotto : 'mandarino',
-    },{
-      id : 6,
-      prodotto : 'mele',
-    },{
-      id : 7,
-      prodotto : 'pere',
-    },{
-      id : 8,
-      prodotto : 'arancie',
-    },
+      nome : 'arancie', 
+    }
   ]
 
   filtri : Array<object> = [

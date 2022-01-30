@@ -10,7 +10,7 @@ export class CustomCardsComponent implements OnInit {
 
   @Input() prodotto : {
     id : number,
-    prodotto : string,
+    nome : string,
     img : string
   };
 
