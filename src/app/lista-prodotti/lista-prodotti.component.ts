@@ -25,6 +25,18 @@ export class ListaProdottiComponent implements OnInit {
     },{
       id : 4,
       prodotto : 'arancie',
+    },{
+      id : 5,
+      prodotto : 'mandarino',
+    },{
+      id : 6,
+      prodotto : 'mele',
+    },{
+      id : 7,
+      prodotto : 'pere',
+    },{
+      id : 8,
+      prodotto : 'arancie',
     },
   ]
 

@@ -16,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { AppReducer } from './reducer/app.reducer';
 import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.component';
-import { FiltriProdottiComponent } from './filtri-prodotti/filtri-prodotti.component'
+import { FiltriProdottiComponent } from './filtri-prodotti/filtri-prodotti.component';
+import { CustomCardsComponent } from './utils/custom-cards/custom-cards.component'
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FiltriProdottiComponent } from './filtri-prodotti/filtri-prodotti.compo
     MenuApplicazioneComponent,
     ListaProdottiComponent,
     FiltriProdottiComponent,
+    CustomCardsComponent,
   ],
   imports: [
     BrowserModule,
