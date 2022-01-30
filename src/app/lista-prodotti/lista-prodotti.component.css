@@ -1,0 +1,11 @@
+.filtri-box{
+    border-right: solid 2px rgb(131, 129, 129);
+    height: 100%;
+}
+
+.container-pag{
+    height: 80%;
+    position: absolute;
+    width: 100%;
+    padding : 3%;
+}

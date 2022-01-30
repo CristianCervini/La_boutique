@@ -1,0 +1,27 @@
+footer{
+    background-color: rgb(13, 150, 138);
+    /* height: 100%;
+    max-height: 25%;
+	max-width: 100%; */
+}
+
+.img-logo{
+    content:url("../header/img/logo-fruit.png"); 
+    height: 7rem;
+    width: 7rem;
+}
+
+.title{
+    margin-bottom: 1rem !important;
+    border-bottom: 1px solid rgb(158, 153, 153) !important;
+    margin-top : 2rem;
+    position: absolute;
+    width: 45%;
+}
+
+.title>h2{
+    font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+    position: relative;
+    bottom: 0;
+    color: rgb(12, 12, 107);
+}

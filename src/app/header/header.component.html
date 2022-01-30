@@ -1,0 +1,33 @@
+<header>
+  <div class="row">
+    <div class="col-1 mr4">
+      <div class="img-logo"></div>
+    </div>
+    <div class="col-6">
+      <div class="title">
+        <h2 >{{titleApp | async}}</h2>
+      </div> 
+    </div>
+    <div class="col-4">
+      <div class="container-info">
+        <div class="row">
+            <div class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button id="dropdownForm1" ngbDropdownToggle>
+                  <fa-icon [icon]="faUser"></fa-icon>Utente
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+                  <form (ngSubmit)="vaiAllaLogin()" class="px-4 py-3">
+                    <label>Effettua la login</label>
+                    <button type="submit" class="btn btn-primary">
+                      Login
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header> 

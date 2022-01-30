@@ -1,0 +1,89 @@
+header {
+    /* height: 100px;
+    width: 100%;
+    font-family: "Times New Roman", Georgia, serif;
+    text-align: center; */
+    background-color: rgb(13, 150, 138);
+}
+
+/* .styledimg {
+    background-image: url("./img/logo.png");
+    background-size: 116px;
+    background-repeat: no-repeat;
+    width: 120px;
+    height: 60px;
+} */
+
+.img-logo{
+    content:url("../header/img/logo-fruit.png"); 
+    height: 5rem;
+    width: 5rem;
+}
+
+.write-stryle{
+    font-family: "Brush Script MT";
+}
+
+.title{
+    margin-bottom: 1rem !important;
+    border-bottom: 1px solid rgb(158, 153, 153) !important;
+    margin-top : 2rem;
+    position: absolute;
+    width: 45%;
+}
+
+.title>h2{
+    font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+    position: relative;
+    bottom: 0;
+    color: rgb(12, 12, 107);
+}
+
+.container-info{
+    /* background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 80%;
+    width: 100%;
+    border-radius: 50%; */
+
+    /* background-color: rgb(8, 204, 188); */
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 80%;
+    width: 100%;
+    border-radius: 5%;
+}
+
+.container-info>.row{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container-info>.row>div{
+    display: inline-block;
+    width: 50%;
+}
+
+.container-info>.row>div>.d-inline-block>button{
+    border: none;
+    background: transparent;
+}
+
+header>.row>.col-4{
+    position: relative;
+}
+
+.d-inline-block>div>form>label{
+    font-size: 10px;
+}
+
+.d-inline-block>div>form{
+    background-color: white;
+}

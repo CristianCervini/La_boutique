@@ -1,0 +1,61 @@
+.form-login{
+    border: 1px solid gray;
+    border-radius: 10px;
+    height: 15rem;
+    background-color: white;
+    position: relative;
+}
+
+form{
+    height: 100%;
+    width: 100%;
+    background-color: #e4e1e1;
+}
+
+.title-login{
+    margin-bottom: 1rem !important;
+    border-bottom: 1px solid rgb(158, 153, 153) !important;
+    margin-top : 2rem;
+    position: absolute;
+    width: 70%;
+}
+
+.title-login>h2{
+    font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+    position: relative;
+    bottom: 0;
+    color: rgb(12, 12, 107);
+}
+
+.img-logo{
+    content:url("../header/img/logo-fruit.png"); 
+    height: 8rem;
+    width: 8rem;
+}
+
+input{
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 0;
+}
+
+.form-login>div{
+    /* margin: auto; */
+    padding: 10px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+label{
+    font-weight: bold;
+    color: blue;
+}
+
+ul{
+    margin-left: 1rem;
+}

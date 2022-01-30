@@ -1,0 +1,19 @@
+<div class="row container-pag">
+    <div class="col-3 filtri-box">
+        <app-filtri-prodotti [listaFiltri]="filtri" ></app-filtri-prodotti>
+    </div>
+    <div class="col">
+        <h2>prova</h2>
+        <div class="row">
+            <div class="col-4 mr-3" *ngFor="let prodotto of lista">
+                    <div id="{{prodotto.id}}" class="card" style="width: 25rem;">
+                        <div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{prodotto.prodotto}}</h5>
+                            </div>
+                        </div>
+                   </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<!-- <div *ngIf="login else loginKO" >
+    <app-header></app-header>
+</div> -->
+
+<!--
+    1. [callbackFunction]=returnLogin GLI PASSIAMO IN INPUT UNA FUNZIONE
+    2. RICEVE IN OUTPUT UNA VARIABILE DOVE ASSUME IL VALORE DI RITORNO DEFINITO NEL COPONENTE FIGLIO
+-->
+<!-- <ng-template #loginKO>
+    <app-login-form [callbackFunction]=returnLogin (login)="login = $event"></app-login-form>
+</ng-template> -->
+<!-- <app-header></app-header> -->
+<!-- <app-boutique>
+    <router-outlet>
+        <app-login-form></app-login-form>
+    </router-outlet>
+</app-boutique> -->
+<!-- <app-boutique></app-boutique> -->
+<router-outlet></router-outlet>
+
+

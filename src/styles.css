@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+html,body,.container-app{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* position: absolute; */
+}
+
+body{
+    position: relative;
+}
+
+.container-app{
+    width: 100%;
+}
+
+.mr3{
+    margin-right: 3rem;
+}
+.mr4{
+    margin-right: 4rem;
+}
+.mr2{
+    margin-right: 2rem;
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+.container-fluid {
+	padding-right: 12px;
+	padding-left: 12px;
+    
+}
+.container-bottom {
+    padding-bottom: 12px;
+}
+@media (min-width: 768px) {
+    .container-fluid {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+    .container-bottom {
+        padding-bottom: 20px;
+    }
+}
+@media (min-width: 1200px) {
+    .container-fluid {
+		padding-right: 28px;
+		padding-left: 28px;
+	}
+    .container-bottom {
+        padding-bottom: 28px;
+    }
+}
+@media (min-width: 1440px) {
+    .container-fluid {
+		max-width: 1600px;
+	}
+}
