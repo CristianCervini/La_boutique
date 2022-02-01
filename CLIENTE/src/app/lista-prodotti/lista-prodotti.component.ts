@@ -10,9 +10,11 @@ import { Prodotto } from '../model/prodotto.model';
 export class ListaProdottiComponent implements OnInit {
 
   valoreFiltri : string;  
-  listaProdotti : Prodotto[] = [];
-  filtri : Array<object> = []
-
+  listaProdotti : Prodotto[] = []; 
+  filtri : Array<object> = [];
+  startLimit : number = 0;
+  limitPage : number = 3;  
+ 
   constructor(private http : HttpClient) { }
 
   ngOnInit(): void {

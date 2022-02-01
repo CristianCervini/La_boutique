@@ -9,7 +9,7 @@ export class MyFilterPipe implements PipeTransform {
         if (!items || !filter || typeof filter === 'object' || listaFiltri.length === 0) {
             return items;
         }
-        const listaTmp = [];
+        const listaTmp = []; 
         items.forEach(item => {
             let trovato = false;
             listaFiltri.forEach(filtro => {

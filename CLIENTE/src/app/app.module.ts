@@ -19,6 +19,7 @@ import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.componen
 import { FiltriProdottiComponent } from './filtri-prodotti/filtri-prodotti.component';
 import { CustomCardsComponent } from './utils/custom-cards/custom-cards.component';
 import { MyFilterPipe } from './utils/my-filter-pipe';
+import { LimitTo } from './utils/limit-page-pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MyFilterPipe } from './utils/my-filter-pipe';
     ListaProdottiComponent,
     FiltriProdottiComponent,
     CustomCardsComponent,
-    MyFilterPipe
+    MyFilterPipe,
+    LimitTo
   ],
   imports: [
     BrowserModule,
