@@ -14,6 +14,7 @@ export class ListaProdottiComponent implements OnInit {
   filtri : Array<object> = [];
   startLimit : number = 0;
   limitPage : number = 3;  
+  page : number = 1;
  
   constructor(private http : HttpClient) { }
 

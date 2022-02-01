@@ -6,9 +6,15 @@
         <div class="row">
             <!-- ng container in questo case serve per fare una condizione di un'elemento al suo interno -->
             <ng-container *ngIf="listaProdotti && listaProdotti.length > 0; else elseBlock">
-                <div class="col-4 form-group" *ngFor="let prodotto of listaProdotti | myfilter:valoreFiltri | limitTo:startLimit:limitPage">    
+                <div class="col-4 form-group" *ngFor="let prodotto of listaProdotti | myfilter:valoreFiltri | limitTo:page:limitPage">    
                     <app-custom-cards [prodotto]="prodotto"></app-custom-cards>
                 </div>
+                <ngb-pagination
+                    [(page)]="page"
+                    [pageSize]="limitPage"
+                    [collectionSize]="listaProdotti.length"
+                >
+                </ngb-pagination>
             </ng-container>
             <ng-template #elseBlock>
                 <label>Non ci sono prodotti</label>
