@@ -14,11 +14,9 @@ export class FiltriProdottiComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngOnChanges() {
-    console.log(this.valoreFiltro);
     let filtroString : string = '';
     for(let key in this.valoreFiltro){
       if(typeof this.valoreFiltro[key] === 'boolean' && this.valoreFiltro[key]){
@@ -35,7 +33,6 @@ export class FiltriProdottiComponent implements OnInit {
         }
       }
     }
-    console.log(filtroString);
     this.valoreFiltri.emit(filtroString);
   }
 
