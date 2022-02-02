@@ -1,17 +1,21 @@
-<ul ngbNav #nav="ngbNav" class="nav-tabs">
-    <li ngbNavItem>
-      <a ngbNavLink >Lista Prodotti</a>
-      <ng-template ngbNavContent>
+<ul ngbNav #nav="ngbNav" class="nav-tabs" [(activeId)]="isActive">
+    <li ngbNavItem [ngbNavItem]="1">
+      <a ngbNavLink 
+        (click)="vaiAlTab('boutique/listaprodotti', 1);"
+      >
+      Lista Prodotti
+      </a>
+      <!-- <ng-template ngbNavContent>
         <app-lista-prodotti></app-lista-prodotti>
-      </ng-template>
+      </ng-template> -->
     </li>
-    <li ngbNavItem>
-      <a ngbNavLink>Second</a>
-      <ng-template ngbNavContent>
+    <li ngbNavItem [ngbNavItem]="2">
+      <a ngbNavLink (click)="vaiAlTab('boutique/login',2);">Second</a>
+      <!-- <ng-template ngbNavContent>
         <div class="p2">
           Second content
         </div>
-      </ng-template>
+      </ng-template> -->
     </li>
 </ul>
 <div [ngbNavOutlet]="nav"></div>

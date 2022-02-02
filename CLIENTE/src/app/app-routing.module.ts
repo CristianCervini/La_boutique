@@ -7,7 +7,7 @@ import LoginFormComponent from './login-form/login-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/boutique', pathMatch: 'full'},
-  { path: 'boutique', component: BoutiqueComponent },
+  { path: 'boutique', component: ListaProdottiComponent },
   { path: 'boutique/login', component: LoginFormComponent },
   { path: 'boutique/listaprodotti', component: ListaProdottiComponent },
   { path: 'boutique/carrello', component: CarrelloComponent },
