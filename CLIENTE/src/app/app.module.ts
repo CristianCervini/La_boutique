@@ -20,6 +20,7 @@ import { FiltriProdottiComponent } from './filtri-prodotti/filtri-prodotti.compo
 import { CustomCardsComponent } from './utils/custom-cards/custom-cards.component';
 import { MyFilterPipe } from './utils/my-filter-pipe';
 import { LimitTo } from './utils/limit-page-pipe';
+import { FilterPage } from './utils/filter-page-table';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LimitTo } from './utils/limit-page-pipe';
     FiltriProdottiComponent,
     CustomCardsComponent,
     MyFilterPipe,
-    LimitTo
+    LimitTo,
+    FilterPage
   ],
   imports: [
     BrowserModule,

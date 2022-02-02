@@ -3,3 +3,11 @@
     /* height: 30%;
     width: 60%; */
 }
+
+.card{
+    box-shadow: gray 8px 8px !important;
+}
+
+h5{
+    border-bottom: blue solid 1px;
+}

@@ -12,9 +12,12 @@ export class ListaProdottiComponent implements OnInit {
   valoreFiltri : string;  
   listaProdotti : Prodotto[] = []; 
   filtri : Array<object> = [];
-  startLimit : number = 0;
-  limitPage : number = 3;  
+  limitPage : number = 9;  
   page : number = 1;
+  jsonButton : Object = {
+    label : 'Aggiungi al carrello',
+    clickGeneric : this.aggiungiAlCarrello
+  }
  
   constructor(private http : HttpClient) { }
 
@@ -43,5 +46,9 @@ export class ListaProdottiComponent implements OnInit {
         ]
       }
     })
+  }
+
+  aggiungiAlCarrello(obj : any){
+    console.log("obj", obj);
   }
 }

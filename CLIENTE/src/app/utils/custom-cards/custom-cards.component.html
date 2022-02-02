@@ -3,5 +3,8 @@
     <div class="card-body">
         <h5 class="card-title">{{prodotto['nome']}}</h5>
         <p>{{prodotto['descrizione']}}</p>
+        <button class="btn btn-primary" title="{{jsonButton['label']}}" (click)="jsonButton['clickGeneric'](prodotto)">
+            {{jsonButton['label']}}
+        </button>
     </div>
 </div>

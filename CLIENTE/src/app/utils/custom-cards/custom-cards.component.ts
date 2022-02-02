@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Prodotto } from '../../model/prodotto.model';
 @Component({
   selector: 'app-custom-cards',
@@ -8,6 +8,11 @@ import { Prodotto } from '../../model/prodotto.model';
 export class CustomCardsComponent implements OnInit {
 
   @Input() prodotto : Prodotto;
+  // @Input() aggiungiAlCarrello : (arg : any) => Prodotto;
+  @Input() jsonButton : Object = {
+    label : String,
+    clickGeneric : (arg : any) => Prodotto
+  }; 
 
   constructor() { }
 
