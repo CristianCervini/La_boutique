@@ -11,6 +11,7 @@ export class Prodotto {
     private nome : string;
     private descrizione : string;
     private img : string;
+    private qnt : number;
 
     get getId() : number{
         return this.id;
@@ -22,7 +23,6 @@ export class Prodotto {
     }
 
     get getNome() : string{
-        console.log("this.nome", this.nome);
         return this.nome;
     }
 
@@ -47,5 +47,14 @@ export class Prodotto {
     @Input()
     set setImg(value : string){
         this.img = value;
+    }
+
+    get getQnt() : number{
+        return this.qnt;
+    }
+
+    @Input()
+    set setQnt(value : number){
+        this.qnt = value;
     }
 }

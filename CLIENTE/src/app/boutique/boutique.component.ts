@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CallApiService } from '../service/call-api.service';
 
 @Component({
   selector: 'app-boutique',
@@ -9,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoutiqueComponent implements OnInit {
 
+  countCarrello : number = 0;
 
-  constructor() { }
+  constructor(private service : CallApiService) { }
 
   ngOnInit(): void {
+    this.service.getCountCarrello().subscribe((rest : number) => {
+      this.countCarrello = rest;
+    })
   }
 
 }
