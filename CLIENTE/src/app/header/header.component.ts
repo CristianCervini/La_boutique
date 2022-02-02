@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { select ,Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { StateApp } from '../app.state';
@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
 
   // myState : Observable<State>;
   titleApp: Observable<string>;
+  @Input() countCarrello : number;
 
   constructor(private router: Router, private store : Store<StateApp>, ) {
     this.titleApp = this.store.select((state) => state.appProperties.titleApp);
@@ -28,6 +29,7 @@ export class HeaderComponent implements OnInit {
 
   title = "La boutique della frutta s.r.l. 2015"
   faUser = faUserCircle;
+  shoppingCartIcon = faShoppingCart;
 
   ngOnInit(): void {
     // console.warn("qui")

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Prodotto } from '../model/prodotto.model';
+import { CallApiService } from '../service/call-api.service';
 
 @Component({
   selector: 'app-lista-prodotti',
@@ -19,12 +20,11 @@ export class ListaProdottiComponent implements OnInit {
     clickGeneric : this.aggiungiAlCarrello
   }
  
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private service : CallApiService) { }
 
   ngOnInit(): void {
     this.filtri = new Array<object>();
-    this.http.post<Prodotto[]>("http://localhost:8080/prodotti/getListaProdotto", null)
-    .subscribe(response => {
+    this.service.getListaProdotti().subscribe((response : Prodotto[]) => {
       if(response && response.length > 0){
         this.listaProdotti = response;
         this.filtri = [
