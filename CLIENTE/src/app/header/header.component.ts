@@ -37,5 +37,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['boutique/login'])
   }
 
+  vaiAlCarrello(){
+    console.log("qui");
+    this.router.navigate(['boutique/carrello'])
+  }
+
   
 }

@@ -21,6 +21,7 @@ import { CustomCardsComponent } from './utils/custom-cards/custom-cards.componen
 import { MyFilterPipe } from './utils/my-filter-pipe';
 import { LimitTo } from './utils/limit-page-pipe';
 import { FilterPage } from './utils/filter-page-table';
+import { CarrelloComponent } from './carrello/carrello.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FilterPage } from './utils/filter-page-table';
     CustomCardsComponent,
     MyFilterPipe,
     LimitTo,
-    FilterPage
+    FilterPage,
+    CarrelloComponent
   ],
   imports: [
     BrowserModule,

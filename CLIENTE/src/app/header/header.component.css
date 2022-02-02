@@ -28,8 +28,8 @@ header {
     margin-bottom: 1rem !important;
     border-bottom: 1px solid rgb(158, 153, 153) !important;
     margin-top : 2rem;
-    position: absolute;
-    width: 45%;
+    /* position: absolute; */
+    width: 100%;
 }
 
 .title>h2{
@@ -50,20 +50,21 @@ header {
     border-radius: 50%; */
 
     /* background-color: rgb(8, 204, 188); */
+    /* background-color: #dfdfdf; */
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     height: 80%;
     width: 100%;
-    border-radius: 5%;
+    /* border-radius: 10%; */
 }
 
 .container-info>.row{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%,-50%);
 }
 
 .container-info>.row>div{
@@ -71,7 +72,7 @@ header {
     width: 50%;
 }
 
-.container-info>.row>div>.d-inline-block>button{
+.d-inline-block>button{
     border: none;
     background: transparent;
 }
@@ -86,4 +87,16 @@ header>.row>.col-4{
 
 .d-inline-block>div>form{
     background-color: white;
+}
+
+.h5{
+    font-size : 1.25rem;
+}
+
+.mt-3{
+    margin-top: 2rem;
+}
+
+.size1{
+    font-size: 1rem;
 }
