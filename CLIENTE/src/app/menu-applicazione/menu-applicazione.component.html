@@ -1,7 +1,7 @@
 <ul ngbNav #nav="ngbNav" class="nav-tabs" [(activeId)]="isActive">
-    <li ngbNavItem [ngbNavItem]="1">
+    <li ngbNavItem [ngbNavItem]="1" routerLinkActive="active">
       <a ngbNavLink 
-        (click)="vaiAlTab('boutique/listaprodotti', 1);"
+        [routerLink]="'catalogo/listaProdotti'"
       >
       Lista Prodotti
       </a>
@@ -10,7 +10,8 @@
       </ng-template> -->
     </li>
     <li ngbNavItem [ngbNavItem]="2">
-      <a ngbNavLink (click)="vaiAlTab('boutique/login',2);">Second</a>
+      <!-- <a ngbNavLink (click)="vaiAlTab(2);" [routerLink]="'boutique/login'">Second</a> -->
+      <a ngbNavLink>Second</a>
       <!-- <ng-template ngbNavContent>
         <div class="p2">
           Second content
@@ -19,3 +20,4 @@
     </li>
 </ul>
 <div [ngbNavOutlet]="nav"></div>
+<router-outlet></router-outlet>

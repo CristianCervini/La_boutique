@@ -85,6 +85,10 @@ header>.row>.col-4{
     font-size: 10px;
 }
 
+.d-inline-block>a{
+    color: black;
+}
+
 .d-inline-block>div>form{
     background-color: white;
 }

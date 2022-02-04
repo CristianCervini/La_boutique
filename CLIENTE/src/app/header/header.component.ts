@@ -40,8 +40,7 @@ export class HeaderComponent implements OnInit {
   }
 
   vaiAlCarrello(){
-    console.log("qui");
-    this.router.navigate(['boutique/carrello'])
+    this.router.navigate(['boutique/catalogo/carrello'])
   }
 
   

@@ -13,26 +13,25 @@ export class MenuApplicazioneComponent implements OnInit {
 
   isActive : any = 1;
   currentPath : string = window.location.pathname;
-  listaPath : string[] = ['/boutique','/boutique/listaprodotti','/boutique/login']
+  listaPath : Object[] = [{
+    idTab : 1,
+    url : '/boutique/catalogo/listaProdotti'
+  }]
 
   constructor(private router: Router) { 
-    router.events.subscribe((val) => {
+    this.router.events.subscribe((val) => {
       if(val instanceof NavigationEnd || val instanceof NavigationStart){
         const url = val.url;
-        const isCambiato = this.listaPath.indexOf(url) === -1;
-        if(isCambiato){
-          this.isActive = 0;
+        this.isActive = 0;
+        const obj = this.listaPath.find(obj => obj['url'].indexOf(url) > -1);
+        if(obj && Object.keys(obj).length > 0){
+          this.isActive = obj['idTab'];
         }
       }
     })
   }
 
   ngOnInit(): void {
-  }
-
-  vaiAlTab(url: string, tabSel: number){
-    this.router.navigate([url]);
-    this.isActive = tabSel;
   }
 
 }

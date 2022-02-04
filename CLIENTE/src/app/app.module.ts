@@ -15,13 +15,15 @@ import { MenuApplicazioneComponent } from './menu-applicazione/menu-applicazione
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { AppReducer } from './reducer/app.reducer';
-import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.component';
-import { FiltriProdottiComponent } from './filtri-prodotti/filtri-prodotti.component';
-import { CustomCardsComponent } from './utils/custom-cards/custom-cards.component';
-import { MyFilterPipe } from './utils/my-filter-pipe';
-import { LimitTo } from './utils/limit-page-pipe';
-import { FilterPage } from './utils/filter-page-table';
-import { CarrelloComponent } from './carrello/carrello.component';
+// import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.component';
+// import { FiltriProdottiComponent } from './filtri-prodotti/filtri-prodotti.component';
+// import { CustomCardsComponent } from './utils/custom-cards/custom-cards.component';
+// import { MyFilterPipe } from './utils/my-filter-pipe';
+// import { LimitTo } from './utils/limit-page-pipe';
+// import { FilterPage } from './utils/filter-page-table';
+// import { CarrelloComponent } from './carrello/carrello.component';
+// import { UrlSerializer } from '@angular/router';
+// import { CustomUrlSerializer } from './url-serializer/CustomUrlSerializer';
 
 @NgModule({
   declarations: [
@@ -32,13 +34,13 @@ import { CarrelloComponent } from './carrello/carrello.component';
     BoutiqueComponent,
     FooterComponent,
     MenuApplicazioneComponent,
-    ListaProdottiComponent,
-    FiltriProdottiComponent,
-    CustomCardsComponent,
-    MyFilterPipe,
-    LimitTo,
-    FilterPage,
-    CarrelloComponent
+    // ListaProdottiComponent,
+    // FiltriProdottiComponent,
+    // CustomCardsComponent,
+    // MyFilterPipe,
+    // LimitTo,
+    // FilterPage,
+    // CarrelloComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,9 @@ import { CarrelloComponent } from './carrello/carrello.component';
   exports : [
     LoginFormComponent
   ],
-  providers: [],
+  providers: [
+    // { provide: UrlSerializer, useClass: CustomUrlSerializer }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
