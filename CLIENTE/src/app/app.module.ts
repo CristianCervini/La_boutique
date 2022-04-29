@@ -15,6 +15,7 @@ import { MenuApplicazioneComponent } from './menu-applicazione/menu-applicazione
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { AppReducer } from './reducer/app.reducer';
+import { RegistrazioneComponent } from './registrazione/registrazione.component';
 // import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.component';
 // import { FiltriProdottiComponent } from './filtri-prodotti/filtri-prodotti.component';
 // import { CustomCardsComponent } from './utils/custom-cards/custom-cards.component';
@@ -34,6 +35,7 @@ import { AppReducer } from './reducer/app.reducer';
     BoutiqueComponent,
     FooterComponent,
     MenuApplicazioneComponent,
+    RegistrazioneComponent,
     // ListaProdottiComponent,
     // FiltriProdottiComponent,
     // CustomCardsComponent,

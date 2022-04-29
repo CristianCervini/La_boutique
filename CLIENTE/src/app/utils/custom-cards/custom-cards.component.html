@@ -3,8 +3,21 @@
     <div class="card-body">
         <h5 class="card-title">{{prodotto['nome']}}</h5>
         <p>{{prodotto['descrizione']}}</p>
-        <button class="btn btn-primary" title="{{jsonButton['label']}}" (click)="jsonButton['clickGeneric'](prodotto)">
-            {{jsonButton['label']}}
-        </button>
+        <ng-container *ngIf="!!jsonButton">
+            <div class="row" *ngFor="let riga of jsonButton">
+                <div class="{{item['colSize']}}" *ngFor="let item of riga">
+                    <ng-container *ngIf="item['type'] === 'numberInput'">
+                        <input style="width: 60%;height: 100%;" type="number" (change)="cambiaValore($event, prodotto)">
+                        <span class="ml025">{{item['label']}}</span>
+                    </ng-container>
+                    <ng-container *ngIf="item['type'] === 'button'">
+                        <!-- <button class="btn btn-primary" title="{{item['label']}}" (click)="item['clickGeneric'](prodotto)"> -->
+                            <button class="btn btn-primary" title="{{item['label']}}" (click)="functionGeneric(item,prodotto);">
+                            {{item['label']}}
+                        </button>
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
     </div>
 </div>

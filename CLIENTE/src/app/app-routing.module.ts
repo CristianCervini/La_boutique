@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BoutiqueComponent } from './boutique/boutique.component';
 import LoginFormComponent from './login-form/login-form.component';
+import { RegistrazioneComponent } from './registrazione/registrazione.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/boutique', pathMatch: 'full'},
@@ -10,6 +11,7 @@ const routes: Routes = [
     { path: '', redirectTo: '/catalogo', pathMatch: 'full'},
   ]},
   { path: 'boutique/login', component: LoginFormComponent },
+  { path: 'boutique/registrazione', component: RegistrazioneComponent }
 ];
 
 @NgModule({

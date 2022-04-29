@@ -15,10 +15,17 @@ export class ListaProdottiComponent implements OnInit {
   filtri : Array<object> = [];
   limitPage : number = 9;  
   page : number = 1;
-  jsonButton : Object = {
+  jsonButton : Object[] = [[{
+    type : 'numberInput',
+    label : 'Al kg.',
+    nome : 'qnt',
+    colSize : 'col-5'
+  },{
+    type : 'button',
     label : 'Aggiungi al carrello',
-    clickGeneric : this.aggiungiAlCarrello
-  }
+    clickGeneric : this.aggiungiAlCarrello, 
+    colSize : 'col-7'
+  }]]
  
   constructor(private http : HttpClient, private service : CallApiService) { }
 
@@ -27,6 +34,10 @@ export class ListaProdottiComponent implements OnInit {
     this.service.getListaProdotti().subscribe((response : Prodotto[]) => {
       if(response && response.length > 0){
         this.listaProdotti = response;
+        this.listaProdotti.map(item => {
+          item['qnt'] = 1;
+          return item;
+        })
         this.filtri = [
           [
             {
@@ -48,7 +59,17 @@ export class ListaProdottiComponent implements OnInit {
     })
   }
 
-  aggiungiAlCarrello(obj : any){
+  aggiungiAlCarrello(obj : any, http: HttpClient, service: CallApiService){
     console.log("obj", obj);
+    http.post<any>("http://localhost:8080/prodotti/aggiungiAlCarrello", obj).subscribe((response : any) => {
+      if(response === 'OK'){
+        console.log('Ok');
+      }
+    })
+    // this.service.aggiungiAlCarrello(obj).subscribe((response : any) => {
+    //   if(response === 'OK'){
+    //     console.log('Ok');
+    //   }
+    // })
   }
 }

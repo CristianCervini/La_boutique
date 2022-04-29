@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.laboutiquedellafrutta.boutique.model.Prodotto;
 import com.laboutiquedellafrutta.boutique.model.UtenteAutenticato;
+import com.laboutiquedellafrutta.boutique.service.IUtenteService;
 import com.laboutiquedellafrutta.boutique.utils.Costanti;
 
 @CrossOrigin("*")
 @RestController
 public class ProdottiController {
+	
+	@Autowired
+	private IUtenteService uteService;
 
 	@RequestMapping(value = {"prodotti/getListaProdotto"})
 	@ResponseBody
@@ -91,5 +96,30 @@ public class ProdottiController {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	@RequestMapping(value = {"prodotti/aggiungiAlCarrello"})
+	@ResponseBody
+	String aggiungiAlCarrello(HttpServletRequest request, @RequestBody Prodotto form){
+		HttpSession session = null;
+		UtenteAutenticato ut = null;
+		try {
+			session = request.getSession();
+			ut = (UtenteAutenticato) session.getAttribute(Costanti.UTENTE_SESSIONE);
+			if(ut == null) {
+				String newUtente = "Utente";
+				Integer random_int = (int)Math.floor(Math.random());
+				newUtente += random_int.toString();
+				ut = new UtenteAutenticato();
+				ut.setNome(newUtente);
+				ut.setCognome("");
+				ut.setEmail("");
+				session.setAttribute(Costanti.UTENTE_SESSIONE, ut);
+				uteService.insertUtente(ut);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return "OK";
 	}
 }
