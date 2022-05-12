@@ -4,12 +4,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.laboutiquedellafrutta.boutique.model.UtenteAutenticato;
 
 @Component
 @Transactional
+@Repository
 public interface IUtenteRepository extends CrudRepository<UtenteAutenticato,Integer> {
 	
 	@Query(nativeQuery = true,value = "call INSERT_UTENTE(:nome,:cognome,:email)")   // call store procedure with arguments

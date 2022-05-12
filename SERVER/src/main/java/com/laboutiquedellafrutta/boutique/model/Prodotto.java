@@ -22,8 +22,6 @@ public class Prodotto implements Serializable {
 	private String descrizione;
 	@Column
 	private String img;
-	@Column
-	private Integer qnt;
 	
 	public Long getId() {
 		return id;
@@ -48,12 +46,6 @@ public class Prodotto implements Serializable {
 	}
 	public void setImg(String img) {
 		this.img = img;
-	}
-	public Integer getQnt() {
-		return qnt;
-	}
-	public void setQnt(Integer qnt) {
-		this.qnt = qnt;
 	}
 	
 }

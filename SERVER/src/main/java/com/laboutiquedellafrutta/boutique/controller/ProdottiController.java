@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.laboutiquedellafrutta.boutique.service.IProdottoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,8 @@ public class ProdottiController {
 	
 	@Autowired
 	private IUtenteService uteService;
+	@Autowired
+	private IProdottoService prodottoService;
 
 	@RequestMapping(value = {"prodotti/getListaProdotto"})
 	@ResponseBody
@@ -32,26 +35,27 @@ public class ProdottiController {
 		List<Prodotto> list = null;
 		try {
 			list = new ArrayList<>();
-			p = new Prodotto();
-			p.setId(1L);
-			p.setNome("Arancia");
-			p.setDescrizione("Descrizione del prodotto");
-			list.add(p);
-			p = new Prodotto();
-			p.setId(2L);
-			p.setNome("Mandarino");
-			p.setDescrizione("Descrizione del prodotto");
-			list.add(p);
-			p = new Prodotto();
-			p.setId(3L);
-			p.setNome("Mela");
-			p.setDescrizione("Descrizione del prodotto");
-			list.add(p);
-			p = new Prodotto();
-			p.setId(4L);
-			p.setNome("Pera");
-			p.setDescrizione("Descrizione del prodotto");
-			list.add(p);
+			list = prodottoService.getListaProdotti();
+			//p = new Prodotto();
+			//p.setId(1L);
+			//p.setNome("Arancia");
+			//p.setDescrizione("Descrizione del prodotto");
+			//list.add(p);
+			//p = new Prodotto();
+			//p.setId(2L);
+			//p.setNome("Mandarino");
+			//p.setDescrizione("Descrizione del prodotto");
+			//list.add(p);
+			//p = new Prodotto();
+			//p.setId(3L);
+			//p.setNome("Mela");
+			//p.setDescrizione("Descrizione del prodotto");
+			//list.add(p);
+			//p = new Prodotto();
+			//p.setId(4L);
+			//p.setNome("Pera");
+			//p.setDescrizione("Descrizione del prodotto");
+			//list.add(p);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
