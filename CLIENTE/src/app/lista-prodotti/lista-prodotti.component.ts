@@ -59,17 +59,16 @@ export class ListaProdottiComponent implements OnInit {
     })
   }
 
-  aggiungiAlCarrello(obj : any, http: HttpClient, service: CallApiService){
-    console.log("obj", obj);
-    http.post<any>("http://localhost:8080/prodotti/aggiungiAlCarrello", obj).subscribe((response : any) => {
-      if(response === 'OK'){
-        console.log('Ok');
-      }
-    })
-    // this.service.aggiungiAlCarrello(obj).subscribe((response : any) => {
-    //   if(response === 'OK'){
-    //     console.log('Ok');
-    //   }
-    // })
+  aggiungiAlCarrello(obj : any, service: CallApiService){
+    if(obj && obj.qnt && obj.qnt > 0){
+      service.aggiungiAlCarrello(obj).subscribe((response : any) => {
+        if(response === 'OK'){
+          console.log('Ok');
+        }
+      })
+    }else{
+      //TODO: inserire il messaggio
+    }
+    
   }
 }

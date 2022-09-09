@@ -1,11 +1,11 @@
-<div class="row container-pag">
+<div class="row">
     <div class="col-3">
         <app-filtri-prodotti [listaFiltri]="filtri" (valoreFiltri)="valoreFiltri = $event"></app-filtri-prodotti>
     </div>
-    <div class="col filtri-box">
+    <div class="col">
         <div class="row">
             <!-- ng container in questo case serve per fare una condizione di un'elemento al suo interno -->
-            <ng-container *ngIf="listaProdotti && listaProdotti.length > 0; else elseBlock">
+            <ng-container *ngIf="listaProdotti && listaProdotti.length > 0 && listaProdotti | filterPage:valoreFiltri; else elseBlock">
                 <div class="col-4 form-group" *ngFor="let prodotto of listaProdotti | myfilter:valoreFiltri | limitTo:page:limitPage">    
                     <app-custom-cards [prodotto]="prodotto" [jsonButton]=jsonButton></app-custom-cards>
                 </div>
@@ -17,7 +17,7 @@
                 </ngb-pagination>
             </ng-container>
             <ng-template #elseBlock>
-                <label>Non ci sono prodotti</label>
+                <label>Nessun prodotto trovato</label>
             </ng-template>
         </div>
     </div>

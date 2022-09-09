@@ -24,9 +24,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(){
     this.store.dispatch(new AppAction.addProperty({titleApp : Property.title}));
-    this.service.getCountCarrello().subscribe((rest : number) => {
-      this.countCarrello = rest;
-    })
+    this.countCarrello = this.service.getCountCarrello();
   } 
 
   returnLogin(value : boolean){

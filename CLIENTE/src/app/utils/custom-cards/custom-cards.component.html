@@ -7,7 +7,7 @@
             <div class="row" *ngFor="let riga of jsonButton">
                 <div class="{{item['colSize']}}" *ngFor="let item of riga">
                     <ng-container *ngIf="item['type'] === 'numberInput'">
-                        <input style="width: 60%;height: 100%;" type="number" (change)="cambiaValore($event, prodotto)">
+                        <input style="width: 60%;height: 100%;" [(ngModel)]="prodotto['qnt']" type="number" (change)="cambiaValore($event, prodotto)">
                         <span class="ml025">{{item['label']}}</span>
                     </ng-container>
                     <ng-container *ngIf="item['type'] === 'button'">

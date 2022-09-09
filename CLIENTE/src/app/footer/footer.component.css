@@ -1,7 +1,7 @@
 footer{
     background-color: rgb(13, 150, 138);
-    margin-top: 1rem;
-    height: 100%;
+    margin-top: 1vh;
+    /* height: 100%; */
     /* max-height: 25%;
 	max-width: 100%; */
 }
@@ -17,7 +17,7 @@ footer{
     border-bottom: 1px solid rgb(158, 153, 153) !important;
     margin-top : 2rem;
     position: absolute;
-    width: 45%;
+    width: 60%;
 }
 
 .title>h2{

@@ -30,7 +30,7 @@ export class CustomCardsComponent implements OnInit {
   }
 
   functionGeneric(item: Object, prodotto: Prodotto){
-    item['clickGeneric'](prodotto, this.http, this.service)
+    item['clickGeneric'](prodotto, this.service)
   }
 
 }
