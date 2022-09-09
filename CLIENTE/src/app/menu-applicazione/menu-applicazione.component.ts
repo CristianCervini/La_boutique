@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+
+const ALERTS: string[] = [
+  'Prova1',
+  'Prova2',
+  'Prova3'
+]
 
 @Component({
   selector: 'app-menu-applicazione',
@@ -10,6 +16,8 @@ import { NavigationEnd, NavigationStart, Router } from '@angular/router';
   ]
 })
 export class MenuApplicazioneComponent implements OnInit {
+
+  listAlert: string[] = [];
 
   isActive : any = 1;
   currentPath : string = window.location.pathname;
@@ -32,6 +40,15 @@ export class MenuApplicazioneComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.listAlert = Array.from(ALERTS);
+  }
+
+  incrementaAlert(){
+    this.listAlert = [];
+    setTimeout(()=>{
+      this.listAlert = Array.from(ALERTS);
+      this.listAlert.push('Prova4');
+    },1000)
   }
 
 }

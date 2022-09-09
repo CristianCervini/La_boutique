@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { AppReducer } from './reducer/app.reducer';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
+import { CustomAlertComponent } from 'src/app/utils/custom-alert/custom-alert.component';
 // import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.component';
 // import { FiltriProdottiComponent } from './filtri-prodotti/filtri-prodotti.component';
 // import { CustomCardsComponent } from './utils/custom-cards/custom-cards.component';
@@ -36,6 +37,7 @@ import { RegistrazioneComponent } from './registrazione/registrazione.component'
     FooterComponent,
     MenuApplicazioneComponent,
     RegistrazioneComponent,
+    CustomAlertComponent,
     // ListaProdottiComponent,
     // FiltriProdottiComponent,
     // CustomCardsComponent,
@@ -60,6 +62,6 @@ import { RegistrazioneComponent } from './registrazione/registrazione.component'
   providers: [
     // { provide: UrlSerializer, useClass: CustomUrlSerializer }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,CustomAlertComponent]
 })
 export class AppModule { }

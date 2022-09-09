@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { Prodotto } from '../model/prodotto.model';
 import { CallApiService } from '../service/call-api.service';
 
@@ -22,7 +22,7 @@ export class ListaProdottiComponent implements OnInit {
     colSize : 'col-5'
   },{
     type : 'button',
-    label : 'Aggiungi al carrello',
+    label : 'Aggiungi al carrello', 
     clickGeneric : this.aggiungiAlCarrello, 
     colSize : 'col-7'
   }]]
