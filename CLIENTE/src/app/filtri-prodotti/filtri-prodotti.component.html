@@ -1,4 +1,4 @@
-<div>
+<form #myForm="ngForm">
     <div *ngFor="let riga of listaFiltri">
         <div *ngFor="let filtro of riga">
             <div *ngIf="filtro.type == 'input'" class="mb2">
@@ -6,13 +6,12 @@
                     <label for={{filtro.nome}} class="">{{filtro.label}}</label>
                     <input 
                         type="text" 
-                        name={{filtro.nome}} 
-                        #{{filtro.nome}} 
                         id={{filtro.nome}}
+                        ngModel
+                        name={{filtro.nome}}
                         class="form-control"
-                        placeholder={{filtro.label}}...
-                        [(ngModel)]="valoreFiltro.filtro"
-                        (ngModelChange)="ngOnChanges()"
+                        placeholder={{filtro.label}}... 
+                        (ngModelChange)="changeFiltri(myForm.value[filtro.nome],'input')"
                     >
                 </div>
             </div>
@@ -25,8 +24,10 @@
                                 <label class="form-check-label">
                                    <input 
                                     type="checkbox"  
-                                    [(ngModel)]="valoreFiltro[elem.nome]" 
-                                    (ngModelChange)="ngOnChanges()"
+                                    [value]="elem.nome"
+                                    name={{elem.nome}}
+                                    ngModel 
+                                    (change)="changeFiltri(myForm.value[elem.nome],elem.nome)"
                                     
                                 > 
                                     {{elem.nome}}
@@ -38,4 +39,4 @@
             </div>
         </div>
     </div>
-</div>
+</form>

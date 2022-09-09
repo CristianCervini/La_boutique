@@ -9,6 +9,8 @@ import { MyFilterPipe } from 'src/app/utils/my-filter-pipe';
 import { LimitTo } from 'src/app/utils/limit-page-pipe';
 import { FilterPage } from 'src/app/utils/filter-page-table';
 import { CarrelloComponent } from 'src/app/carrello/carrello.component';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { CarrelloComponent } from 'src/app/carrello/carrello.component';
   ],
   imports: [
     CommonModule,
-    ApplicazioneRoutingModule
+    ApplicazioneRoutingModule,
+    FormsModule,
+    NgbModule
   ]
 })
 export class ApplicazioneModule { }

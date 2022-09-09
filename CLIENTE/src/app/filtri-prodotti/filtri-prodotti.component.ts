@@ -10,30 +10,32 @@ export class FiltriProdottiComponent implements OnInit {
   @Input() listaFiltri : [];
   @Output() valoreFiltri : EventEmitter<string> = new EventEmitter();
 
-  valoreFiltro : object = {};
-
-  constructor() { }
+  filtroObjectTmp: Object = {};
+  filtriList: [] = [];
+ 
+  constructor() { } 
 
   ngOnInit(): void {}
 
-  ngOnChanges() {
-    let filtroString : string = '';
-    for(let key in this.valoreFiltro){
-      if(typeof this.valoreFiltro[key] === 'boolean' && this.valoreFiltro[key]){
-        if(filtroString === ''){
-          filtroString += key;
+  changeFiltri(value: string, name: string) {
+    this.filtroObjectTmp[name] = value;
+    let filtroTmp: string = '';
+    for(let key in this.filtroObjectTmp){
+      if(typeof this.filtroObjectTmp[key] === 'boolean' && this.filtroObjectTmp[key]){
+        if(filtroTmp === ''){
+          filtroTmp += key;
         }else{
-          filtroString += ';' + key ;
+          filtroTmp += ';' + key ;
         }
-      }else if(typeof this.valoreFiltro[key] === 'string' && this.valoreFiltro[key] !== ''){
-        if(filtroString === ''){
-          filtroString += this.valoreFiltro[key];
+      }else if(typeof this.filtroObjectTmp[key] === 'string' && this.filtroObjectTmp[key] !== ''){
+        if(filtroTmp === ''){
+          filtroTmp += this.filtroObjectTmp[key];
         }else{
-          filtroString += ';' + this.valoreFiltro[key];
+          filtroTmp += ';' + this.filtroObjectTmp[key];
         }
       }
     }
-    this.valoreFiltri.emit(filtroString);
+    this.valoreFiltri.emit(filtroTmp);
   }
 
 }

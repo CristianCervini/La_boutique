@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 })
 export class MyFilterPipe implements PipeTransform {
     transform(items: any[], filter: string): any {
-        const listaFiltri = filter.split(';');
+        const listaFiltri = filter && filter !== '' ? filter.split(';') : [];
         if (!items || !filter || typeof filter === 'object' || listaFiltri.length === 0) {
             return items;
         }
