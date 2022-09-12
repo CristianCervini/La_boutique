@@ -1,17 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Prodotto } from '../model/prodotto.model';
-
 @Injectable({
   providedIn: 'root'
 })
-export class CallApiService {
+export class CallApiService{
 
   GET_COUNT_CARRELLO : string = "http://localhost:8080/prodotti/getCoutCarrello";
   GET_LISTA_PRODOTTO : string = "http://localhost:8080/prodotti/getListaProdotto";
   ADD_CARRELLO : string = "http://localhost:8080/prodotti/aggiungiAlCarrello";
 
+  popolaAlertArray: Subject<Array<string>> = new Subject<Array<string>>();
+
   constructor(private http: HttpClient) { }
+
+  toggleAlertList(list: Array<string>){
+    this.popolaAlertArray.next(Array.from(list));
+  }
 
   getCountCarrello() : any{
     return this.http.post(this.GET_COUNT_CARRELLO, null);
@@ -24,4 +30,5 @@ export class CallApiService {
   aggiungiAlCarrello(data: any) : any{ 
     return this.http.post<any>(this.ADD_CARRELLO, data);
   }
+
 }

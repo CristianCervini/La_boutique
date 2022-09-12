@@ -1,5 +1,6 @@
-import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgbAlertConfig} from '@ng-bootstrap/ng-bootstrap';
+import { CallApiService } from 'src/app/service/call-api.service';
 
 
 const ALERTS: string[] = [
@@ -13,23 +14,32 @@ const ALERTS: string[] = [
   templateUrl: './custom-alert.component.html',
   styleUrls: ['./custom-alert.component.css']
 })
-export class CustomAlertComponent implements OnInit, OnChanges {
+export class CustomAlertComponent implements OnInit {
 
-  @Input() public alerts: Array<string> = [];
+  alertsList: Array<string> = [];
+  alerts: Array<string> = [];
+  countDown: number = 0;
+  myTimeOut: any;
 
-  constructor(alertConfig: NgbAlertConfig) {
+  constructor(alertConfig: NgbAlertConfig, private service: CallApiService) {
     alertConfig.type = 'success';
     alertConfig.dismissible = false;
+    this.service.popolaAlertArray.subscribe((value)=>{
+      this.addAlert(value);
+    })
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  addAlert(value: any): void {
+    clearTimeout(this.myTimeOut);
+    this.alerts = this.alerts.concat(value);
+    this.deleteAlert();
   }
 
-  close() {
-    // this.alerts.splice(this.alerts.indexOf(alert), 1);
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("qui dentro");
+  deleteAlert(){
+    this.myTimeOut = setTimeout(()=>{
+      this.alerts = [];
+    },5000)
   }
 }

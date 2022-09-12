@@ -62,6 +62,6 @@ import { CustomAlertComponent } from 'src/app/utils/custom-alert/custom-alert.co
   providers: [
     // { provide: UrlSerializer, useClass: CustomUrlSerializer }
   ],
-  bootstrap: [AppComponent,CustomAlertComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

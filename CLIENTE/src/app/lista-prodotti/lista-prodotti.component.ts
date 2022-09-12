@@ -60,6 +60,9 @@ export class ListaProdottiComponent implements OnInit {
   }
 
   aggiungiAlCarrello(obj : any, service: CallApiService){
+    if(true){
+      service.toggleAlertList(['Bisogna prima registrarsi']);
+    }
     if(obj && obj.qnt && obj.qnt > 0){
       service.aggiungiAlCarrello(obj).subscribe((response : any) => {
         if(response === 'OK'){

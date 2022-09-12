@@ -1,5 +1,7 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { CallApiService } from '../service/call-api.service';
+import { CustomAlertComponent } from '../utils/custom-alert/custom-alert.component';
 
 const ALERTS: string[] = [
   'Prova1',
@@ -26,7 +28,7 @@ export class MenuApplicazioneComponent implements OnInit {
     url : '/boutique/catalogo/listaProdotti'
   }]
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, public service: CallApiService) { 
     this.router.events.subscribe((val) => {
       if(val instanceof NavigationEnd || val instanceof NavigationStart){
         const url = val.url;
@@ -39,16 +41,6 @@ export class MenuApplicazioneComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-    this.listAlert = Array.from(ALERTS);
-  }
-
-  incrementaAlert(){
-    this.listAlert = [];
-    setTimeout(()=>{
-      this.listAlert = Array.from(ALERTS);
-      this.listAlert.push('Prova4');
-    },1000)
-  }
+  ngOnInit(): void { }
 
 }
