@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row" style="min-height: 100vh;">
     <div class="col-3 container-filtri">
         <app-filtri-prodotti [listaFiltri]="filtri" (valoreFiltri)="valoreFiltri = $event"></app-filtri-prodotti>
     </div>
-    <div class="col">
+    <div class="col container-cards" >
         <div class="row">
             <!-- ng container in questo caso serve per fare una condizione di un'elemento al suo interno -->
             <ng-container *ngIf="listaProdotti && listaProdotti.length > 0 && listaProdotti | filterPage:valoreFiltri; else elseBlock">

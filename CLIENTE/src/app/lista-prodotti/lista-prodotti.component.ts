@@ -40,7 +40,6 @@ export class ListaProdottiComponent implements OnInit {
   constructor(private http : HttpClient, private service : CallApiService) { }
 
   ngOnInit(): void {
-    console.log("paginationProperty",this.paginationProperty);
     this.filtri = new Array<object>();
     this.service.getListaProdotti().subscribe((response : Prodotto[]) => {
       if(response && response.length > 0){
