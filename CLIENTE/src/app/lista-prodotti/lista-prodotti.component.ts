@@ -29,12 +29,12 @@ export class ListaProdottiComponent implements OnInit {
     type : 'numberInput',
     label : 'Al kg.',
     nome : 'qnt',
-    colSize : 'col-5'
+    // colSize : 'col-5'
   },{
     type : 'button',
     label : 'Aggiungi al carrello', 
     clickGeneric : this.aggiungiAlCarrello, 
-    colSize : 'col-7'
+    // colSize : 'col-7'
   }]]
  
   constructor(private http : HttpClient, private service : CallApiService) { }
@@ -73,7 +73,7 @@ export class ListaProdottiComponent implements OnInit {
     })
   }
 
-  aggiungiAlCarrello(obj : any, service: CallApiService){
+  aggiungiAlCarrello(service: CallApiService, obj : any,){
     if(obj && obj.qnt && obj.qnt > 0){
       service.aggiungiAlCarrello(obj).subscribe((response : any) => {
         if(response === 'OK'){

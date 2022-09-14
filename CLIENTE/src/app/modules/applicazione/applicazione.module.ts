@@ -11,6 +11,7 @@ import { FilterPage } from 'src/app/utils/filter-page-table';
 import { CarrelloComponent } from 'src/app/carrello/carrello.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CardsProdottiComponent } from 'src/app/cards-prodotti/cards-prodotti.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MyFilterPipe,
     LimitTo,
     FilterPage,
-    CarrelloComponent
+    CarrelloComponent,
+    CardsProdottiComponent
   ],
   imports: [
     CommonModule,

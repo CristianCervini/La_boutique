@@ -7,12 +7,13 @@
             <!-- ng container in questo caso serve per fare una condizione di un'elemento al suo interno -->
             <ng-container *ngIf="listaProdotti && listaProdotti.length > 0 && listaProdotti | filterPage:valoreFiltri; else elseBlock">
                 <div 
-                    class="col-4  form-group" 
+                    class="col-4 form-group" 
                     *ngFor="let prodotto of listaProdotti | myfilter:valoreFiltri | limitTo:paginationProperty.page:paginationProperty.limitPage"
                 >    
-                    <app-custom-cards [prodotto]="prodotto" [jsonButton]=jsonButton></app-custom-cards>
+                    <!-- <app-custom-cards [prodotto]="prodotto" [jsonButton]=jsonButton></app-custom-cards> -->
+                    <app-cards-prodotti [prodotto]="prodotto" [aggiungiAlCarrello]="aggiungiAlCarrello"></app-cards-prodotti>
                 </div>
-                <!-- <ngb-pagination
+                <ngb-pagination
                     [(page)]="paginationProperty.page"
                     [pageSize]="paginationProperty.limitPage"
                     [collectionSize]="listaProdotti | filterPage:valoreFiltri"
@@ -21,7 +22,7 @@
                     [ellipses]="false" 
                     [boundaryLinks]="true"
                 >
-                </ngb-pagination> -->
+                </ngb-pagination>
             </ng-container>
             <ng-template #elseBlock>
                 <div class="contain-message-no-result">
@@ -30,7 +31,7 @@
             </ng-template>
         </div>
     </div>
-    <div style="width: 100%;">
+    <!-- <div style="width: 100%;">
         <div class="row" style="float: right;" *ngIf="listaProdotti && listaProdotti.length > 0 && listaProdotti | filterPage:valoreFiltri">
             <ngb-pagination
                 class="col-3"
@@ -44,5 +45,5 @@
             >
             </ngb-pagination>
         </div>
-    </div>
+    </div> -->
 </div>
