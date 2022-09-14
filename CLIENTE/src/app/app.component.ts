@@ -1,6 +1,4 @@
-import { Component, EventEmitter, Injectable, OnInit, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import Property from './property.json';
 import { Store } from '@ngrx/store';
 import * as AppAction from './actions/app.action';
@@ -16,8 +14,7 @@ export class AppComponent implements OnInit {
 
   count : number = 0;
 
-  constructor(private http: HttpClient, private store: Store<any>, private service : CallApiService){
-  }
+  constructor( private store: Store<any>, private service : CallApiService ){ }
 
   login = false
   countCarrello : number = 0;

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -53,7 +54,7 @@ import { CustomAlertComponent } from 'src/app/utils/custom-alert/custom-alert.co
     NgbModule,
     FontAwesomeModule,
     HttpClientModule,
-    StoreModule.forRoot( { appProperties : AppReducer } ) 
+    StoreModule.forRoot( { appProperties : AppReducer } )
     // AngularFontAwesomeModule
   ],
   exports : [

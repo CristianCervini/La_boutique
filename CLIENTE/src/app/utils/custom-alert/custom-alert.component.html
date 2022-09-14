@@ -1,3 +1,3 @@
 <p *ngFor="let alert of alerts">
-    <ngb-alert class="margin-alert">{{ alert }}</ngb-alert>
+    <ngb-alert [type]="alert.type" class="margin-alert" [dismissible]="false">{{ alert.msg }}</ngb-alert>
 </p>

@@ -9,7 +9,7 @@ export class LimitTo implements PipeTransform {
             return items;
         }
         const startElem = (page-1) * pageSize;
-        const limitPage = page * pageSize
+        const limitPage = page * pageSize;
         return items.filter((item,index) => index < limitPage && index >= startElem);
     }
 }

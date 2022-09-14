@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Alert } from '../model/alert';
 import { Prodotto } from '../model/prodotto.model';
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,11 @@ export class CallApiService{
   GET_LISTA_PRODOTTO : string = "http://localhost:8080/prodotti/getListaProdotto";
   ADD_CARRELLO : string = "http://localhost:8080/prodotti/aggiungiAlCarrello";
 
-  popolaAlertArray: Subject<Array<string>> = new Subject<Array<string>>();
+  popolaAlertArray: Subject<Array<Alert>> = new Subject<Array<Alert>>();
 
   constructor(private http: HttpClient) { }
 
-  toggleAlertList(list: Array<string>){
+  toggleAlertList(list: Array<Alert>){
     this.popolaAlertArray.next(Array.from(list));
   }
 

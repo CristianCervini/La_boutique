@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbAlertConfig} from '@ng-bootstrap/ng-bootstrap';
+import { Alert } from 'src/app/model/alert';
 import { CallApiService } from 'src/app/service/call-api.service';
-
-
-const ALERTS: string[] = [
-  'prova',
-  'prova2',
-  'prova3'
-];
 
 @Component({
   selector: 'app-custom-alert',
@@ -16,14 +10,13 @@ const ALERTS: string[] = [
 })
 export class CustomAlertComponent implements OnInit {
 
-  alertsList: Array<string> = [];
-  alerts: Array<string> = [];
+  alerts: Array<Alert> = [];
   countDown: number = 0;
   myTimeOut: any;
 
-  constructor(alertConfig: NgbAlertConfig, private service: CallApiService) {
-    alertConfig.type = 'success';
-    alertConfig.dismissible = false;
+  constructor(/*alertConfig: NgbAlertConfig,*/ private service: CallApiService) {
+    /*alertConfig.type = 'success';
+    alertConfig.dismissible = false;*/
     this.service.popolaAlertArray.subscribe((value)=>{
       this.addAlert(value);
     })

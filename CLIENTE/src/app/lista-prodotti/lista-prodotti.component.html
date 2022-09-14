@@ -1,26 +1,48 @@
 <div class="row">
-    <div class="col-3">
+    <div class="col-3 container-filtri">
         <app-filtri-prodotti [listaFiltri]="filtri" (valoreFiltri)="valoreFiltri = $event"></app-filtri-prodotti>
     </div>
     <div class="col">
         <div class="row">
-            <!-- ng container in questo case serve per fare una condizione di un'elemento al suo interno -->
+            <!-- ng container in questo caso serve per fare una condizione di un'elemento al suo interno -->
             <ng-container *ngIf="listaProdotti && listaProdotti.length > 0 && listaProdotti | filterPage:valoreFiltri; else elseBlock">
-                <div class="col-4 form-group" *ngFor="let prodotto of listaProdotti | myfilter:valoreFiltri | limitTo:page:limitPage">    
+                <div 
+                    class="col-4  form-group" 
+                    *ngFor="let prodotto of listaProdotti | myfilter:valoreFiltri | limitTo:paginationProperty.page:paginationProperty.limitPage"
+                >    
                     <app-custom-cards [prodotto]="prodotto" [jsonButton]=jsonButton></app-custom-cards>
                 </div>
-                <ngb-pagination
-                    [(page)]="page"
-                    [pageSize]="limitPage"
+                <!-- <ngb-pagination
+                    [(page)]="paginationProperty.page"
+                    [pageSize]="paginationProperty.limitPage"
                     [collectionSize]="listaProdotti | filterPage:valoreFiltri"
+                    [maxSize]="5" 
+                    [rotate]="true" 
+                    [ellipses]="false" 
+                    [boundaryLinks]="true"
                 >
-                </ngb-pagination>
+                </ngb-pagination> -->
             </ng-container>
             <ng-template #elseBlock>
                 <div class="contain-message-no-result">
-                    <h5>Nessun prodotto trovato</h5>
+                    <h5>{{messageNotFound}}</h5> 
                 </div>
             </ng-template>
+        </div>
+    </div>
+    <div style="width: 100%;">
+        <div class="row" style="float: right;" *ngIf="listaProdotti && listaProdotti.length > 0 && listaProdotti | filterPage:valoreFiltri">
+            <ngb-pagination
+                class="col-3"
+                [(page)]="paginationProperty.page"
+                [pageSize]="paginationProperty.limitPage"
+                [collectionSize]="listaProdotti | filterPage:valoreFiltri"
+                [maxSize]="5" 
+                [rotate]="true" 
+                [ellipses]="false" 
+                [boundaryLinks]="true"
+            >
+            </ngb-pagination>
         </div>
     </div>
 </div>
