@@ -10,7 +10,7 @@
     overflow-y: auto;
     max-height: 200vh;
     margin-right: 0.5rem;
-    /* border-right: solid 1px gray; */
+    /* border-right: solid 1px rgb(190, 190, 190); */
 }
 
 .container-filtri::-webkit-scrollbar {

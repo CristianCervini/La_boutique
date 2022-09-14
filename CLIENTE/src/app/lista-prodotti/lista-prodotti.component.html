@@ -13,16 +13,18 @@
                     <!-- <app-custom-cards [prodotto]="prodotto" [jsonButton]=jsonButton></app-custom-cards> -->
                     <app-cards-prodotti [prodotto]="prodotto" [aggiungiAlCarrello]="aggiungiAlCarrello"></app-cards-prodotti>
                 </div>
-                <ngb-pagination
-                    [(page)]="paginationProperty.page"
-                    [pageSize]="paginationProperty.limitPage"
-                    [collectionSize]="listaProdotti | filterPage:valoreFiltri"
-                    [maxSize]="5" 
-                    [rotate]="true" 
-                    [ellipses]="false" 
-                    [boundaryLinks]="true"
-                >
-                </ngb-pagination>
+                <div style="bottom: 0;">
+                    <ngb-pagination
+                        [(page)]="paginationProperty.page"
+                        [pageSize]="paginationProperty.limitPage"
+                        [collectionSize]="listaProdotti | filterPage:valoreFiltri"
+                        [maxSize]="5" 
+                        [rotate]="true" 
+                        [ellipses]="false" 
+                        [boundaryLinks]="true"
+                    >
+                    </ngb-pagination>
+                </div>
             </ng-container>
             <ng-template #elseBlock>
                 <div class="contain-message-no-result">
