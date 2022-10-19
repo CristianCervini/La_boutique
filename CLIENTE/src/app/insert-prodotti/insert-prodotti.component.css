@@ -1,0 +1,9 @@
+.container-page{
+    min-height: 65vh;
+}
+
+.container-form{
+    padding: 1%;
+    background-color: rgb(231, 231, 231);
+    box-shadow: inset 10px 10px 10px 10px #ffffff;
+}

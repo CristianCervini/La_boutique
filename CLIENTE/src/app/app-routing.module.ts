@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BoutiqueComponent } from './boutique/boutique.component';
+import { InsertProdottiComponent } from './insert-prodotti/insert-prodotti.component';
 import LoginFormComponent from './login-form/login-form.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
 
@@ -8,7 +9,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/boutique', pathMatch: 'full'},
   { path: 'boutique', component: BoutiqueComponent, children:[
     { path: 'catalogo', loadChildren: () => import(`./modules/applicazione/applicazione.module`).then(m => m.ApplicazioneModule) },
-    { path: '', redirectTo: '/catalogo', pathMatch: 'full'},
+    { path: '', redirectTo: '/catalogo', pathMatch: 'full'}
   ]},
   { path: 'boutique/login', component: LoginFormComponent },
   { path: 'boutique/registrazione', component: RegistrazioneComponent }

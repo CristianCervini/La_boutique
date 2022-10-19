@@ -1,14 +1,13 @@
 package com.laboutiquedellafrutta.boutique.model;
 
 import java.io.Serializable;
+import java.sql.Blob;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "prodotto")
 public class Prodotto implements Serializable {
 
 	private static final long serialVersionUID = 160114084344686528L;
@@ -20,8 +19,9 @@ public class Prodotto implements Serializable {
 	private String nome;
 	@Column
 	private String descrizione;
-	@Column
-	private String img;
+
+	@OneToMany(mappedBy = "prodotto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Catalogo> catalogoList;
 	
 	public Long getId() {
 		return id;
@@ -41,11 +41,12 @@ public class Prodotto implements Serializable {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-	public String getImg() {
-		return img;
+
+	public List<Catalogo> getCatalogoList() {
+		return catalogoList;
 	}
-	public void setImg(String img) {
-		this.img = img;
+
+	public void setCatalogoList(List<Catalogo> catalogoList) {
+		this.catalogoList = catalogoList;
 	}
-	
 }

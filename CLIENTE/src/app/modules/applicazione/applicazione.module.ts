@@ -12,6 +12,7 @@ import { CarrelloComponent } from 'src/app/carrello/carrello.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardsProdottiComponent } from 'src/app/cards-prodotti/cards-prodotti.component';
+import { InsertProdottiComponent } from 'src/app/insert-prodotti/insert-prodotti.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CardsProdottiComponent } from 'src/app/cards-prodotti/cards-prodotti.co
     LimitTo,
     FilterPage,
     CarrelloComponent,
-    CardsProdottiComponent
+    CardsProdottiComponent,
+    InsertProdottiComponent
   ],
   imports: [
     CommonModule,

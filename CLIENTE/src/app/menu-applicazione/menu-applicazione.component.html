@@ -9,9 +9,14 @@
         <app-lista-prodotti></app-lista-prodotti>
       </ng-template> -->
     </li>
-    <li ngbNavItem [ngbNavItem]="2">
+    <li ngbNavItem [ngbNavItem]="2" routerLinkActive="active">
+      <a ngbNavLink
+        [routerLink]="'catalogo/insert-prodotti'"
+      >
+        Inserisci prodotti
+      </a>
       <!-- <a ngbNavLink (click)="vaiAlTab(2);" [routerLink]="'boutique/login'">Second</a> -->
-      <a ngbNavLink>Second</a>
+      <!-- <a ngbNavLink>Second</a> -->
       <!-- <ng-template ngbNavContent>
         <div class="p2">
           Second content

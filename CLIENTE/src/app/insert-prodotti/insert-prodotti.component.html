@@ -1,0 +1,56 @@
+<div class="container-page">
+    <form #formInsertProdotto="ngForm" (ngSubmit)="inserisciProdotto(formInsertProdotto.value)" class="container-form">
+        <div class="row">
+            <div class="form-group col">
+                <label for="nameProdotto">Nome</label>
+                <input type="text" class="form-control" name="nome" id="nameProdotto" placeholder="Nome prodotto..." ngModel>
+            </div>
+            <div class="form-group col">
+                <label for="descrProdotto">Descrizione</label>
+                <input type="text" class="form-control" name="descrizione" id="descrProdotto" placeholder="Descrizione prodotto..." ngModel>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">Registra prodotto</button>
+            </div>
+        </div>
+    </form>
+    <div class="row" *ngIf="listaProdotti && listaProdotti.length > 0; else messageBlock">
+        <div class="col p5">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrizione</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let prodotto of listaProdotti | limitTo:page:pageSize; index as i">
+                        <th scope="row">{{ prodotto.numero }}</th>
+                        <td>{{ prodotto.nome }}</td>
+                        <td>{{ prodotto.descrizione }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-between p-2">
+                <ngb-pagination
+                    [collectionSize]="listaProdotti.length"
+                    [(page)]="page"
+                    [pageSize]="pageSize"
+                    [maxSize]="5" 
+                    [rotate]="true" 
+                    [ellipses]="false" 
+                    [boundaryLinks]="true"
+                >
+                </ngb-pagination>
+            </div>
+        </div>
+    </div>
+    <ng-template #messageBlock>
+        <div class="mt2 contain-message-no-result">
+            <h3>Non sono presenti prodotti registrati</h3>
+        </div>
+    </ng-template>
+</div>

@@ -18,6 +18,7 @@ import { StoreModule } from '@ngrx/store';
 import { AppReducer } from './reducer/app.reducer';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
 import { CustomAlertComponent } from 'src/app/utils/custom-alert/custom-alert.component';
+//import { InsertProdottiComponent } from './insert-prodotti/insert-prodotti.component';
 // import { ListaProdottiComponent } from './lista-prodotti/lista-prodotti.component';
 // import { FiltriProdottiComponent } from './filtri-prodotti/filtri-prodotti.component';
 // import { CustomCardsComponent } from './utils/custom-cards/custom-cards.component';
@@ -39,6 +40,7 @@ import { CustomAlertComponent } from 'src/app/utils/custom-alert/custom-alert.co
     MenuApplicazioneComponent,
     RegistrazioneComponent,
     CustomAlertComponent,
+    //InsertProdottiComponent,
     // ListaProdottiComponent,
     // FiltriProdottiComponent,
     // CustomCardsComponent,

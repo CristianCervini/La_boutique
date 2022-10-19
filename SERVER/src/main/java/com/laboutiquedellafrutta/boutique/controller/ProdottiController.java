@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.laboutiquedellafrutta.boutique.model.ResponseString;
 import com.laboutiquedellafrutta.boutique.service.IProdottoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,11 +32,8 @@ public class ProdottiController {
 	@RequestMapping(value = {"prodotti/getListaProdotto"})
 	@ResponseBody
 	List<Prodotto> getListaProdotti(){
-		Prodotto p = null;
-		List<Prodotto> list = null;
 		try {
-			list = new ArrayList<>();
-			list = prodottoService.getListaProdotti();
+			return prodottoService.getListaProdotti();
 			//p = new Prodotto();
 			//p.setId(1L);
 			//p.setNome("Arancia");
@@ -58,8 +56,8 @@ public class ProdottiController {
 			//list.add(p);
 		}catch(Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-		return list;
 	}
 	
 	@RequestMapping(value = {"prodotti/getCoutCarrello"})
@@ -125,5 +123,18 @@ public class ProdottiController {
 			e.printStackTrace();
 		}
 		return "OK";
+	}
+
+	@RequestMapping(value = {"prodotti/registraProdotto"})
+	ResponseString registraProdotto(@RequestBody Prodotto prodotto){
+		ResponseString result = null;
+		try{
+			prodottoService.registraProdotto(prodotto);
+			result = new ResponseString("OK");
+		} catch (Exception e){
+			e.printStackTrace();
+			result = new ResponseString("Errore durante la registrazione del prodotto");
+		}
+		return result;
 	}
 }

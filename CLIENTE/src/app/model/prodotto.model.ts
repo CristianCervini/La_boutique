@@ -10,8 +10,7 @@ export class Prodotto {
     private id : number;
     private nome : string;
     private descrizione : string;
-    private img : string;
-    private qnt : number;
+    public numero: number;
 
     get getId() : number{
         return this.id;
@@ -38,23 +37,5 @@ export class Prodotto {
     @Input()
     set setDescrizione(value : string){
         this.descrizione = value;
-    }
-
-    get getImg() : string{
-        return this.img;
-    }
-
-    @Input()
-    set setImg(value : string){
-        this.img = value;
-    }
-
-    get getQnt() : number{
-        return this.qnt;
-    }
-
-    @Input()
-    set setQnt(value : number){
-        this.qnt = value;
     }
 }
