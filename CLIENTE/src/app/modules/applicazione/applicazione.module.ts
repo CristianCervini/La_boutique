@@ -9,10 +9,11 @@ import { MyFilterPipe } from 'src/app/utils/my-filter-pipe';
 import { LimitTo } from 'src/app/utils/limit-page-pipe';
 import { FilterPage } from 'src/app/utils/filter-page-table';
 import { CarrelloComponent } from 'src/app/carrello/carrello.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CardsProdottiComponent } from 'src/app/cards-prodotti/cards-prodotti.component';
 import { InsertProdottiComponent } from 'src/app/insert-prodotti/insert-prodotti.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -25,13 +26,15 @@ import { InsertProdottiComponent } from 'src/app/insert-prodotti/insert-prodotti
     FilterPage,
     CarrelloComponent,
     CardsProdottiComponent,
-    InsertProdottiComponent
+    InsertProdottiComponent,
   ],
   imports: [
     CommonModule,
     ApplicazioneRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    FontAwesomeModule,
+    ReactiveFormsModule
   ]
 })
 export class ApplicazioneModule { }

@@ -9,4 +9,8 @@ import java.util.List;
 public interface IProdottoService {
     public List<Prodotto> getListaProdotti() throws Exception;
     public void registraProdotto(Prodotto prodotto) throws Exception;
+
+    void cancellaProdotto(Long idProdotto)throws Exception;
+
+    void modificaProdotto(Prodotto prodotto)throws Exception;
 }

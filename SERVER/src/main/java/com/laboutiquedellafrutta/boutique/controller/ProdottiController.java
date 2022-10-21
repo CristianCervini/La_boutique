@@ -133,6 +133,36 @@ public class ProdottiController {
 			result = new ResponseString("OK");
 		} catch (Exception e){
 			e.printStackTrace();
+			String msg = "Errore durante la registrazione del prodotto";
+			if(e.getMessage().indexOf("Errore -") > -1){
+				msg = e.getMessage();
+			}
+			result = new ResponseString(msg);
+		}
+		return result;
+	}
+
+	@RequestMapping(value = {"prodotti/cancellaProdotto"})
+	ResponseString cancellaProdotto(@RequestBody Long idProdotto){
+		ResponseString result = null;
+		try{
+			prodottoService.cancellaProdotto(idProdotto);
+			result = new ResponseString("OK");
+		} catch (Exception e){
+			e.printStackTrace();
+			result = new ResponseString("Errore durante la registrazione del prodotto");
+		}
+		return result;
+	}
+
+	@RequestMapping(value = {"prodotti/modificaProdotto"})
+	ResponseString modificaProdotto(@RequestBody Prodotto prodotto){
+		ResponseString result = null;
+		try{
+			prodottoService.modificaProdotto(prodotto);
+			result = new ResponseString("OK");
+		} catch (Exception e){
+			e.printStackTrace();
 			result = new ResponseString("Errore durante la registrazione del prodotto");
 		}
 		return result;

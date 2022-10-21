@@ -54,6 +54,14 @@ body{
     text-align: center;
 }
 
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+form{
+    height: auto !important;
+}
+
 @media (min-width: 768px) {
     .container-fluid {
 		padding-right: 20px;

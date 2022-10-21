@@ -20,7 +20,7 @@ public class ProdottoServiceImpl implements IProdottoService {
         Prodotto prod = null;
         try{
             prod = new Prodotto();
-            List<Prodotto> list =  repo.findAll();
+            List<Prodotto> list =  repo.findAllByOrderByNomeAsc();
             return list;
         }catch (Exception e){
             e.printStackTrace();
@@ -30,11 +30,23 @@ public class ProdottoServiceImpl implements IProdottoService {
 
     @Override
     public void registraProdotto(Prodotto prodotto) throws Exception {
-        try{
+        List<Prodotto> list =  repo.findAllByOrderByNomeAsc();
+        boolean trovato = list.stream().anyMatch(x -> x.getNome().equalsIgnoreCase(prodotto.getNome()) && x.getDescrizione().equalsIgnoreCase(prodotto.getDescrizione()));
+        if(!trovato){
             repo.registraProdotto(prodotto.getNome(), prodotto.getDescrizione());
-        } catch (Exception e){
-            e.printStackTrace();
-            throw(e);
+        }else{
+            String msg = "Errore - L'elemento " + prodotto.getNome() + ", " + prodotto.getDescrizione() + " è già presente nella lista";
+            throw new Exception(msg);
         }
+    }
+
+    @Override
+    public void cancellaProdotto(Long idProdotto) throws Exception {
+        repo.deleteById(idProdotto);
+    }
+
+    @Override
+    public void modificaProdotto(Prodotto prodotto) throws Exception {
+        repo.updateNomeAndDescrizioneById(prodotto.getId(),prodotto.getNome(), prodotto.getDescrizione());
     }
 }

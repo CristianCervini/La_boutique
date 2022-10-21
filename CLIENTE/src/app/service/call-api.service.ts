@@ -12,6 +12,8 @@ export class CallApiService{
   GET_LISTA_PRODOTTO : string = "http://localhost:8080/prodotti/getListaProdotto";
   ADD_CARRELLO : string = "http://localhost:8080/prodotti/aggiungiAlCarrello";
   REGISTRA_PRODOTTO: string = "http://localhost:8080/prodotti/registraProdotto";
+  DELETE_PRODOTTO: string = "http://localhost:8080/prodotti/cancellaProdotto";
+  MODIFICA_PRODOTTO: string = "http://localhost:8080/prodotti/modificaProdotto";
 
   popolaAlertArray: Subject<Array<Alert>> = new Subject<Array<Alert>>();
 
@@ -35,6 +37,14 @@ export class CallApiService{
 
   registraProdotto(data: any): any{
     return this.http.post<any>(this.REGISTRA_PRODOTTO, data);
+  }
+
+  deleteProdotto(data: any): any{
+    return this.http.post<any>(this.DELETE_PRODOTTO, data);
+  }
+
+  modificaProdotto(data: any): any{
+    return this.http.post<any>(this.MODIFICA_PRODOTTO, data);
   }
 
 }

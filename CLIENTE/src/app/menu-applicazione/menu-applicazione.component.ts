@@ -26,6 +26,9 @@ export class MenuApplicazioneComponent implements OnInit {
   listaPath : Object[] = [{
     idTab : 1,
     url : '/boutique/catalogo/listaProdotti'
+  },{
+    idTab : 2,
+    url : '/boutique/catalogo/insert-prodotti'
   }]
 
   constructor(private router: Router, public service: CallApiService) { 
