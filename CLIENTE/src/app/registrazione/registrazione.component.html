@@ -1,1 +1,155 @@
-<p>registrazione works!</p>
+<div class="container-form-login">
+    <div class="container-fluid">
+        <div class="row align-items-center custom-row">
+            <div class="row">
+                <div class="col-1 mr4">
+                    <div class="form-group">
+                        <div class="img-logo" ></div>
+                        <!-- <img src="../../app/header/img/logo-fruit.png" width="150" height="150" > -->
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="title-login">
+                        <h2>La boutique della frutta 2015 s.r.l.s</h2>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <form [formGroup]="credenzialiReg" class="form-login" (ngSubmit)="registra(credenzialiReg.value)">
+                    <div class="d-flex justify-content-center">
+                        <div style="width: 50%;">
+                            <div class="p-2">
+                                <input 
+                                    type="text" 
+                                    class="form-control {{formValid['nome']}}" 
+                                    id="nome"  
+                                    name="nome" 
+                                    formControlName="nome" 
+                                    placeholder="Nome"  
+                                    aria-describedby="nomeFeedback" 
+                                    required 
+                                    (focus)="resetControl('nome')"
+                                    (focusout)="primoControllo('nome', credenzialiReg.value['nome'])"
+                                />
+                                <div id="nomeFeedback" class="{{getClassRequired(formValid['nome'])}}">
+                                    {{messageValid['nome']}}
+                                </div>
+                            </div>
+                            <div class="p-2">
+                                <input 
+                                    type="text" 
+                                    class="form-control {{formValid['cognome']}}" 
+                                    id="cognome"  
+                                    name="cognome" 
+                                    formControlName="cognome" 
+                                    placeholder="Cognome" 
+                                    aria-describedby="msgFeedback" 
+                                    required 
+                                    (focus)="resetControl('cognome')"
+                                    (focusout)="primoControllo('cognome', credenzialiReg.value['cognome'])"
+                                />
+                                <div id="nomeFeedback" class="{{getClassRequired(formValid['cognome'])}}">
+                                    {{messageValid['cognome']}}
+                                </div>
+                            </div>
+                            <div class="p-2">
+                                <input 
+                                    type="text" 
+                                    class="form-control {{formValid['indirizzo']}}" 
+                                    id="indirizzo"  
+                                    name="indirizzo" 
+                                    formControlName="indirizzo" 
+                                    placeholder="Indirizzo" 
+                                    aria-describedby="msgFeedback" 
+                                    required 
+                                    (focus)="resetControl('indirizzo')"
+                                    (focusout)="primoControllo('indirizzo', credenzialiReg.value['indirizzo'])"
+                                />
+                                <div id="nomeFeedback" class="{{getClassRequired(formValid['indirizzo'])}}">
+                                    {{messageValid['indirizzo']}}
+                                </div>
+                            </div>
+                            <div class="p-2">
+                                <input 
+                                    type="text" 
+                                    class="form-control {{formValid['email']}}" 
+                                    id="email"  
+                                    name="email" 
+                                    formControlName="email" 
+                                    placeholder="Email" 
+                                    aria-describedby="msgFeedback" 
+                                    required 
+                                    (focus)="resetControl('email')"
+                                    (focusout)="primoControllo('email', credenzialiReg.value['email'])"
+                                />
+                                <div id="nomeFeedback" class="{{getClassRequired(formValid['email'])}}">
+                                    {{messageValid['email']}}
+                                </div>
+                            </div>
+                            <div class="p-2">
+                                <input 
+                                    type="text" 
+                                    class="form-control {{formValid['username']}}" 
+                                    id="username"  
+                                    name="username" 
+                                    formControlName="username" 
+                                    placeholder="Username" 
+                                    aria-describedby="msgFeedback" 
+                                    required 
+                                    (focus)="resetControl('username')"
+                                    (focusout)="primoControllo('username', credenzialiReg.value['username'])"
+                                />
+                                <div id="nomeFeedback" class="{{getClassRequired(formValid['username'])}}">
+                                    {{messageValid['username']}}
+                                </div>
+                            </div>
+                            <div class="p-2">
+                                <input 
+                                    type="password" 
+                                    class="form-control {{formValid['password']}}" 
+                                    id="password"  
+                                    name="password" 
+                                    formControlName="password" 
+                                    placeholder="Password" 
+                                    aria-describedby="msgFeedback" 
+                                    required 
+                                    (focus)="resetControl('password')"
+                                    (focusout)="primoControllo('password', credenzialiReg.value['password'])"
+                                />
+                                <div id="nomeFeedback" class="{{getClassRequired(formValid['password'])}}">
+                                    {{messageValid['password']}}
+                                </div>
+                            </div>
+                            <div class="p-2">
+                                <input 
+                                    type="password" 
+                                    class="form-control {{formValid['passwordConfirm']}}" 
+                                    id="passwordConfirm" 
+                                    name="passwordConfirm" 
+                                    formControlName="passwordConfirm" 
+                                    placeholder="Conferma password" 
+                                    aria-describedby="msgFeedback" 
+                                    required 
+                                    (focus)="resetControl('passwordConfirm')"
+                                    (focusout)="primoControllo('passwordConfirm', credenzialiReg.value['passwordConfirm'])"
+                                />
+                                <div id="nomeFeedback" class="{{getClassRequired(formValid['passwordConfirm'])}}">
+                                    {{messageValid['passwordConfirm']}}
+                                </div>
+                            </div>
+                            <button class="btn btn-primary">Registrati</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <hr class="mt-5">
+            <div class="row">
+               <label>Contatti:</label> 
+               <ul>
+                   <li>Telefono: 3463194670</li>
+                   <li>Email: lino.cervini@alice.com</li>
+               </ul>
+            </div>
+        </div>
+    </div>
+</div>

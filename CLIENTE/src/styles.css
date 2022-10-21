@@ -24,11 +24,17 @@ body{
 .mr2{
     margin-right: 2rem;
 }
+.mr1{
+    margin-right: 1rem;
+}
 .mt2{
     margin-top: 2rem;
 }
 .p5{
     padding: 5%;
+}
+.pt2{
+    padding-top: 2%;
 }
 .row{
     margin-left: 0;

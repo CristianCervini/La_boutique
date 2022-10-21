@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Utente } from '../model/utente.model';
 
 @Component({
@@ -11,12 +12,15 @@ import { Utente } from '../model/utente.model';
 })
 export default class LoginFormComponent implements OnInit {
 
-  constructor() {
-    
-  }
+  constructor() {}
 
-  @Input() callbackFunction: (args: any) => void;
-  @Output() login : EventEmitter<boolean> = new EventEmitter();
+  // @Input() callbackFunction: (args: any) => void;
+  // @Output() login : EventEmitter<boolean> = new EventEmitter();
+
+  credenzialiUtente = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl('')
+  });
 
   utente = new Utente();
 
@@ -26,9 +30,9 @@ export default class LoginFormComponent implements OnInit {
 
   loginClick(values){
     console.warn(values)
-    this.utente.setUsername = values.username;
-    this.utente.setPassword = values.password;
+    this.utente.username = values.username;
+    this.utente.password = values.password;
     console.warn("utente", this.utente)
-    this.login.emit(true)
+    // this.login.emit(true)
   }
 }
