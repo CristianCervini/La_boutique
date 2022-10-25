@@ -31,11 +31,15 @@ public class ProdottoServiceImpl implements IProdottoService {
     @Override
     public void registraProdotto(Prodotto prodotto) throws Exception {
         List<Prodotto> list =  repo.findAllByOrderByNomeAsc();
-        boolean trovato = list.stream().anyMatch(x -> x.getNome().equalsIgnoreCase(prodotto.getNome()) && x.getDescrizione().equalsIgnoreCase(prodotto.getDescrizione()));
+        boolean trovato = list.stream()
+                .anyMatch(x -> x.getNome().equalsIgnoreCase(prodotto.getNome())
+                        && x.getDescrizione().equalsIgnoreCase(prodotto.getDescrizione())
+                );
         if(!trovato){
             repo.registraProdotto(prodotto.getNome(), prodotto.getDescrizione());
         }else{
-            String msg = "Errore - L'elemento " + prodotto.getNome() + ", " + prodotto.getDescrizione() + " è già presente nella lista";
+            String msg = "Errore - L'elemento " + prodotto.getNome()
+                    + ", " + prodotto.getDescrizione() + " è già presente nella lista";
             throw new Exception(msg);
         }
     }

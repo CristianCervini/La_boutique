@@ -11,7 +11,8 @@ public class Catalogo implements Serializable {
     private static final long serialVersionUID = 160114084344686528L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_CATALOGO")
+    @SequenceGenerator(name="SEQ_CATALOGO", sequenceName="SEQ_CATALOGO", allocationSize=1)
     private Long id;
 
     @ManyToOne

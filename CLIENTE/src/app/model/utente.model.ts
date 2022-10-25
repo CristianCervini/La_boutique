@@ -1,9 +1,11 @@
+import { CredenzialiLogin } from "./credenziali-login";
+import { IndirizzoUtente } from "./indirizzo-utente";
+
 export class Utente {
     nome?: string;
     cognome?: string;
-    indirizzo?: string;
+    codFiscale?: string;
+    listaIndirizzi?: [IndirizzoUtente];
     email?: string;
-    username : string;
-    password : string;
-    passwordConfirm? : string
+    credenziali: CredenzialiLogin;
 }

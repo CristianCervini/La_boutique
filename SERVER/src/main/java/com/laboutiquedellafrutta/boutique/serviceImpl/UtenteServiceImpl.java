@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.laboutiquedellafrutta.boutique.model.UtenteAutenticato;
+import com.laboutiquedellafrutta.boutique.model.Utente;
 import com.laboutiquedellafrutta.boutique.repository.IUtenteRepository;
 import com.laboutiquedellafrutta.boutique.service.IUtenteService;
 
@@ -16,7 +16,7 @@ public class UtenteServiceImpl implements IUtenteService{
 
 	@Transactional
 	@Override
-	public void insertUtente(UtenteAutenticato ute) throws Exception {
+	public void insertUtente(Utente ute) throws Exception {
 		try {
 			uteRepo.insertUtente(ute.getNome(),ute.getCognome(), ute.getEmail());
 		}catch(Exception e) {
@@ -24,4 +24,10 @@ public class UtenteServiceImpl implements IUtenteService{
 		}
 	}
 
+	@Override
+	public void registraUtente(Utente ute) throws Exception {
+		String trovato = uteRepo.findUte(ute.getCodFiscale());
+		if(trovato.equalsIgnoreCase("false"))
+			uteRepo.save(ute);
+	}
 }

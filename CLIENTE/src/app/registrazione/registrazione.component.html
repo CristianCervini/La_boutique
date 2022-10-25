@@ -55,6 +55,23 @@
                             <div class="p-2">
                                 <input 
                                     type="text" 
+                                    class="form-control {{formValid['codFiscale']}}" 
+                                    id="codFiscale"  
+                                    name="codFiscale" 
+                                    formControlName="codFiscale" 
+                                    placeholder="Codice fiscale" 
+                                    aria-describedby="msgFeedback" 
+                                    required 
+                                    (focus)="resetControl('codFiscale')"
+                                    (focusout)="primoControllo('codFiscale', credenzialiReg.value['codFiscale'])"
+                                />
+                                <div id="nomeFeedback" class="{{getClassRequired(formValid['codFiscale'])}}">
+                                    {{messageValid['codFiscale']}}
+                                </div>
+                            </div>
+                            <div class="p-2">
+                                <input 
+                                    type="text" 
                                     class="form-control {{formValid['indirizzo']}}" 
                                     id="indirizzo"  
                                     name="indirizzo" 

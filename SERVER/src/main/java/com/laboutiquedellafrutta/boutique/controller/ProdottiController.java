@@ -9,18 +9,15 @@ import javax.servlet.http.HttpSession;
 import com.laboutiquedellafrutta.boutique.model.ResponseString;
 import com.laboutiquedellafrutta.boutique.service.IProdottoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.laboutiquedellafrutta.boutique.model.Prodotto;
-import com.laboutiquedellafrutta.boutique.model.UtenteAutenticato;
+import com.laboutiquedellafrutta.boutique.model.Utente;
 import com.laboutiquedellafrutta.boutique.service.IUtenteService;
 import com.laboutiquedellafrutta.boutique.utils.Costanti;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = Costanti.CROSS_ORIGIN)
+@RequestMapping(value = "prodotti/")
 @RestController
 public class ProdottiController {
 	
@@ -29,7 +26,7 @@ public class ProdottiController {
 	@Autowired
 	private IProdottoService prodottoService;
 
-	@RequestMapping(value = {"prodotti/getListaProdotto"})
+	@RequestMapping(value = {"getListaProdotto"})
 	@ResponseBody
 	List<Prodotto> getListaProdotti(){
 		try {
@@ -60,16 +57,16 @@ public class ProdottiController {
 		}
 	}
 	
-	@RequestMapping(value = {"prodotti/getCoutCarrello"})
+	@RequestMapping(value = {"getCoutCarrello"})
 	@ResponseBody
 	Integer getCoutCarrello(HttpServletRequest request){
 		Integer count = 0;
 		List<Prodotto> list = null;
 		HttpSession session = null;
-		UtenteAutenticato ut = null;
+		Utente ut = null;
 		try {
 			session = request.getSession();
-			ut = (UtenteAutenticato) session.getAttribute(Costanti.UTENTE_SESSIONE);
+			ut = (Utente) session.getAttribute(Costanti.UTENTE_SESSIONE);
 			list = new ArrayList<>();
 			if(ut != null) {
 				
@@ -80,39 +77,20 @@ public class ProdottiController {
 		}
 		return count;
 	}
-	
-	@RequestMapping(value = {"carrello/getCarrello"})
-	@ResponseBody
-	List<Prodotto> getCarrello(HttpServletRequest request){
-		List<Prodotto> list = null;
-		HttpSession session = null;
-		UtenteAutenticato ut = null;
-		try {
-			session = request.getSession();
-			ut = (UtenteAutenticato) session.getAttribute(Costanti.UTENTE_SESSIONE);
-			list = new ArrayList<>();
-			if(ut != null) {
-				
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
-	
-	@RequestMapping(value = {"prodotti/aggiungiAlCarrello"})
+
+	@RequestMapping(value = {"aggiungiAlCarrello"})
 	@ResponseBody
 	String aggiungiAlCarrello(HttpServletRequest request, @RequestBody Prodotto form){
 		HttpSession session = null;
-		UtenteAutenticato ut = null;
+		Utente ut = null;
 		try {
 			session = request.getSession();
-			ut = (UtenteAutenticato) session.getAttribute(Costanti.UTENTE_SESSIONE);
+			ut = (Utente) session.getAttribute(Costanti.UTENTE_SESSIONE);
 			if(ut == null) {
 				String newUtente = "Utente";
 				Integer random_int = (int)Math.floor(Math.random());
 				newUtente += random_int.toString();
-				ut = new UtenteAutenticato();
+				ut = new Utente();
 				ut.setNome(newUtente);
 				ut.setCognome("");
 				ut.setEmail("");
@@ -125,7 +103,7 @@ public class ProdottiController {
 		return "OK";
 	}
 
-	@RequestMapping(value = {"prodotti/registraProdotto"})
+	@RequestMapping(value = {"registraProdotto"})
 	ResponseString registraProdotto(@RequestBody Prodotto prodotto){
 		ResponseString result = null;
 		try{
@@ -142,7 +120,7 @@ public class ProdottiController {
 		return result;
 	}
 
-	@RequestMapping(value = {"prodotti/cancellaProdotto"})
+	@RequestMapping(value = {"cancellaProdotto"})
 	ResponseString cancellaProdotto(@RequestBody Long idProdotto){
 		ResponseString result = null;
 		try{
@@ -155,7 +133,7 @@ public class ProdottiController {
 		return result;
 	}
 
-	@RequestMapping(value = {"prodotti/modificaProdotto"})
+	@RequestMapping(value = {"modificaProdotto"})
 	ResponseString modificaProdotto(@RequestBody Prodotto prodotto){
 		ResponseString result = null;
 		try{

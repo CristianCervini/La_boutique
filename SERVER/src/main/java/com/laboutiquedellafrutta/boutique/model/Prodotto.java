@@ -13,7 +13,8 @@ public class Prodotto implements Serializable {
 	private static final long serialVersionUID = 160114084344686528L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PRODOTTO")
+	@SequenceGenerator(name="SEQ_PRODOTTO", sequenceName="SEQ_PRODOTTO", allocationSize=1)
 	private Long id;
 	@Column
 	private String nome;

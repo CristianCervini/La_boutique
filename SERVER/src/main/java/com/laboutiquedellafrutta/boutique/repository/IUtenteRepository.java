@@ -7,12 +7,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.laboutiquedellafrutta.boutique.model.UtenteAutenticato;
+import com.laboutiquedellafrutta.boutique.model.Utente;
 
 @Component
 @Transactional
 @Repository
-public interface IUtenteRepository extends CrudRepository<UtenteAutenticato,Integer> {
+public interface IUtenteRepository extends CrudRepository<Utente,Integer> {
 	
 	@Query(nativeQuery = true,value = "call INSERT_UTENTE(:nome,:cognome,:email)")   // call store procedure with arguments
     void insertUtente(
@@ -21,4 +21,22 @@ public interface IUtenteRepository extends CrudRepository<UtenteAutenticato,Inte
     		@Param("email")String email
     		);
 
+	/*@Query(value = "select case " +
+			"when (count(select id_utente " +
+						"from utente " +
+						"where upper(cod_fiscale) = upper(:codFiscale)" +
+					") > 0) " +
+			"then true " +
+			"else false " +
+			"end")*/
+	@Query(value = "select case " +
+			"when (count(id_utente) > 0) " +
+			"then 'true' " +
+			"else 'false' " +
+			"end " +
+			"from utente " +
+			"where upper(cod_fiscale) = upper(:codFiscale)", nativeQuery = true)
+	String findUte(@Param("codFiscale") String codFiscale);
+
+	Utente save(Utente ute);
 }

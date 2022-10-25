@@ -30,8 +30,8 @@ export default class LoginFormComponent implements OnInit {
 
   loginClick(values){
     console.warn(values)
-    this.utente.username = values.username;
-    this.utente.password = values.password;
+    // this.utente.username = values.username;
+    // this.utente.password = values.password;
     console.warn("utente", this.utente)
     // this.login.emit(true)
   }

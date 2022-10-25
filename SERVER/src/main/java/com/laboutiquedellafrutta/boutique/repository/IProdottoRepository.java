@@ -16,13 +16,20 @@ public interface IProdottoRepository extends CrudRepository<Prodotto,Long> {
     List<Prodotto> findAllByOrderByNomeAsc();
     @Modifying
     @Transactional
-    @Query(value = "insert into laboutique.prodotto (nome, descrizione) values (:nome,:descrizione)", nativeQuery = true)
-    void registraProdotto(@Param("nome") String nome, @Param("descrizione") String descrizione);
+    @Query(value = "insert into laboutique.prodotto (nome, descrizione) " +
+            "values (:nome,:descrizione)",
+            nativeQuery = true)
+    void registraProdotto(@Param("nome") String nome,
+                          @Param("descrizione") String descrizione);
 
     void deleteById(Long idProdotto);
 
     @Modifying
     @Transactional
-    @Query(value = "update prodotto set nome = :nome, descrizione = :descrizione where id = :id", nativeQuery = true)
-    void updateNomeAndDescrizioneById(@Param("id") Long id, @Param("nome") String nome, @Param("descrizione") String descrizione);
+    @Query(value = "update prodotto set nome = :nome, " +
+            "descrizione = :descrizione " +
+            "where id = :id", nativeQuery = true)
+    void updateNomeAndDescrizioneById(@Param("id") Long id,
+                                      @Param("nome") String nome,
+                                      @Param("descrizione") String descrizione);
 }

@@ -9,6 +9,7 @@ export enum messageFeedback {
   ERROR_MESSAGE = "Il campo risulta non valorizzato correttamente",
   NOME = "Il campo nome non risulta valurizzato",
   COGNOME = "Il campo cognome non risulta valurizzato",
+  CODFISCALE= "Il campo codice fiscale non risulta valorizzato",
   INDIRIZZO = "Il campo indirizzo non risulta valurizzato",
   EMAIL = "Il campo email non risulta valurizzato",
   USERNAME = "Il campo username non risulta valurizzato",
@@ -41,6 +42,7 @@ export class RegistrazioneComponent implements OnInit {
   credenzialiReg= new FormGroup({
     nome: new FormControl(''),
     cognome: new FormControl(''),
+    codFiscale: new FormControl(''),
     indirizzo: new FormControl(''),
     email: new FormControl(''),
     username: new FormControl(''),
@@ -50,7 +52,7 @@ export class RegistrazioneComponent implements OnInit {
   formValid: Utente = new Utente();
   messageValid: Utente = new Utente();
 
-  constructor() { }
+  constructor(private service: CallApiService) { }
 
   ngOnInit(): void {
   }
@@ -68,6 +70,20 @@ export class RegistrazioneComponent implements OnInit {
     this.controlloDati(data);
     if(this.controlloNext()){
       //TODO salvare sul db i dati
+      const ute: Utente = {
+        nome: data.nome,
+        cognome: data.cognome,
+        codFiscale: data.codFiscale,
+        email: data.email,
+        listaIndirizzi: [{indirizzo: data.indirizzo}],
+        credenziali: {
+          username: data.username,
+          password: data.password
+        }
+      }
+      this.service.registraUtente(ute).subscribe((result: any) =>{
+        console.log("nella result", result);
+      })
     };
   }
 
