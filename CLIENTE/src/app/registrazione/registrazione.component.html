@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div style="text-align: center;">
-                <form [formGroup]="credenzialiReg" class="form-login" (ngSubmit)="registra(credenzialiReg.value)">
+                <form [formGroup]="credenzialiReg" class="form-login" (ngSubmit)="registra(credenzialiReg.value,modalConten)">
                     <div class="d-flex justify-content-center">
                         <div style="width: 50%;">
                             <div class="p-2">
@@ -157,6 +157,18 @@
                             <button class="btn btn-primary">Registrati</button>
                         </div>
                     </div>
+                    <ng-template #modalConten let-c="close" let-d="dismiss">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">{{messageModal.title}}</h4>
+                            <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>{{messageModal.msg}} </p>
+                            <div style="text-align: center;" *ngIf="messageModal.esito === 'OK'">
+                                <button type="button" class="btn btn-primary" (click)="vaiAllaLogin();d('Cross click')" aria-label="Close">Vai alla login</button>
+                            </div>
+                        </div>
+                    </ng-template>
                 </form>
             </div>
             <hr class="mt-5">

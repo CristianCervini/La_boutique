@@ -1,20 +1,14 @@
 package com.laboutiquedellafrutta.boutique.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class ResponseString {
 
     private String response;
-
-    public ResponseString(){}
-
-    public ResponseString(String response) {
-        this.response = response;
-    }
-
-    public String getResponse() {
-        return response;
-    }
-
-    public void setResponse(String response) {
-        this.response = response;
-    }
+    
 }

@@ -39,4 +39,5 @@ public interface IUtenteRepository extends CrudRepository<Utente,Integer> {
 	String findUte(@Param("codFiscale") String codFiscale);
 
 	Utente save(Utente ute);
+	boolean existsByEmail(@Param("email") String email);
 }

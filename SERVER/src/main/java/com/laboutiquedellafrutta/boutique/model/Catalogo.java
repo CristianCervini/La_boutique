@@ -1,10 +1,13 @@
 package com.laboutiquedellafrutta.boutique.model;
 
 import javax.persistence.*;
+
+import lombok.Data;
+
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
+@Data
 @Table(name = "catalogo")
 public class Catalogo implements Serializable {
 
@@ -19,19 +22,4 @@ public class Catalogo implements Serializable {
     @JoinColumn(name = "prodotto_id", referencedColumnName = "id", nullable = true)
     private Prodotto prodotto;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Prodotto getProdotto() {
-        return prodotto;
-    }
-
-    public void setProdotto(Prodotto prodotto) {
-        this.prodotto = prodotto;
-    }
 }

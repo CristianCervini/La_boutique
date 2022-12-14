@@ -4,7 +4,7 @@ import { Alert } from '../model/alert';
 import { Page } from '../model/page';
 import { Prodotto } from '../model/prodotto.model';
 import { CallApiService } from '../service/call-api.service';
-import { MESSAGE_NOT_FOUND_PRODOTTI } from '../utils/constants';
+import { Constants } from '../utils/constants';
 
 @Component({
   selector: 'app-lista-prodotti',
@@ -13,7 +13,7 @@ import { MESSAGE_NOT_FOUND_PRODOTTI } from '../utils/constants';
 })
 export class ListaProdottiComponent implements OnInit {
 
-  messageNotFound: string = MESSAGE_NOT_FOUND_PRODOTTI;
+  messageNotFound: string = Constants.MESSAGE_NOT_FOUND_PRODOTTI;
   paginationProperty: Page = {
     limitPage: 9,
     page: 1

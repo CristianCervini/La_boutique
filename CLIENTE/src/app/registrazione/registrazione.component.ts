@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CallApiService } from '../service/call-api.service';
 import { Alert } from '../model/alert';
 import { Utente } from '../model/utente.model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 export enum messageFeedback {
   OK_MESSAGE = "Il campo risulta valorizzato correttamente",
@@ -52,7 +54,16 @@ export class RegistrazioneComponent implements OnInit {
   formValid: Utente = new Utente();
   messageValid: Utente = new Utente();
 
-  constructor(private service: CallApiService) { }
+  messageModal: Object = {
+    msg: '',
+    title: '',
+    esito: ''
+  }
+
+  constructor(
+    private service: CallApiService,
+    private modalService: NgbModal 
+  ) { }
 
   ngOnInit(): void {
   }
@@ -65,11 +76,9 @@ export class RegistrazioneComponent implements OnInit {
     }
   }
 
-  registra(data: any){
-    console.log(data);
+  registra(data: any, content: any){
     this.controlloDati(data);
     if(this.controlloNext()){
-      //TODO salvare sul db i dati
       const ute: Utente = {
         nome: data.nome,
         cognome: data.cognome,
@@ -82,7 +91,8 @@ export class RegistrazioneComponent implements OnInit {
         }
       }
       this.service.registraUtente(ute).subscribe((result: any) =>{
-        console.log("nella result", result);
+        this.getMessage(result.response);
+        this.open(content);
       })
     };
   }
@@ -148,6 +158,36 @@ export class RegistrazioneComponent implements OnInit {
 
   valorizzaMessageValid(nome: string, value: any){
     this.messageValid[nome] = value;
+  }
+
+  getMessage(response: any){
+    if(response === 'OK'){
+      this.messageModal = {
+        msg: 'Per proseguire ed accedere con le tue credenziali vai alla login',
+        title: 'Operazione eseguita con successo',
+        esito: 'OK'
+      }
+    }else if(response !== 'OK' && response !== ''){
+      this.messageModal = {
+        msg: response,
+        title: 'Errore durante la registrazione',
+        esito: 'KO'
+      }
+    }else{
+      this.messageModal = {
+        msg: 'ERROR',
+        title: 'Errore durante la registrazione',
+        esito: 'KO'
+      }
+    }
+  }
+
+  open(content: any){
+    this.modalService.open(content);
+  }
+
+  vaiAllaLogin(){
+    window.location.href= "boutique/login";
   }
 
 }
