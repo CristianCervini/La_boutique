@@ -38,9 +38,7 @@ public class Utente implements Serializable{
 	@OneToMany(mappedBy = "utente")
 	private List<RuoliUtenti> listRuoliUte;
 	
-//	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "utente")
-	//@JoinColumn(name= "credenziali_id", referencedColumnName = "id")
 	private CredenzialiLogin credenziali;
 
 	public void addIndirizzoUtente(IndirizzoUtente indirizzo){
