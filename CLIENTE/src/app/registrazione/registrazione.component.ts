@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { CallApiService } from '../service/call-api.service';
-import { Alert } from '../model/alert';
 import { Utente } from '../model/utente.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -41,7 +40,16 @@ export enum validFeedback {
 })
 export class RegistrazioneComponent implements OnInit {
 
-  credenzialiReg= new FormGroup({});
+  credenzialiReg= new FormGroup({
+    nome: new FormControl(''),
+    cognome: new FormControl(''),
+    codFiscale: new FormControl(''),
+    indirizzo: new FormControl(''),
+    email: new FormControl(''),
+    username: new FormControl(''),
+    password: new FormControl(''),
+    passwordConfirm: new FormControl('')
+  })
   formValid: Utente = new Utente();
   messageValid: Utente = new Utente();
 
@@ -54,24 +62,9 @@ export class RegistrazioneComponent implements OnInit {
   constructor(
     private service: CallApiService,
     private modalService: NgbModal 
-  ) {
-    this.inizializzaForm();
-   }
+  ) { }
 
   ngOnInit(): void {
-  }
-
-  inizializzaForm(){
-    this.credenzialiReg= new FormGroup({
-      nome: new FormControl(''),
-      cognome: new FormControl(''),
-      codFiscale: new FormControl(''),
-      indirizzo: new FormControl(''),
-      email: new FormControl(''),
-      username: new FormControl(''),
-      password: new FormControl(''),
-      passwordConfirm: new FormControl('')
-    })
   }
 
   getClassRequired(value: any): any{
